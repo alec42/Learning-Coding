@@ -14,3 +14,11 @@ flights %>%
     group_by(carrier) %>%
     summarise(mean = mean(dep_delay), sd = sd(dep_delay))
 
+flights %>%
+    filter(is.na(dep_delay) != T) %>%
+    group_by(dest) %>%
+    summarise(mean = mean(dep_delay), 
+              sd = sd(dep_delay), 
+              n = n())
+
+
