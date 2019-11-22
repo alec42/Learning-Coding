@@ -31,8 +31,17 @@
                     <p>Présentement en cours de complétion d'un baccalauréat en Actuariat à l'Université Laval.</p>
                     <p>Anciennement animateur de scouts, programmeur enthousiaste, toujours prêt à apprendre!</p>
                 </div>
-                <input type="text" name="name_input" placeholder="name">
-            </div>
+                <!-- method implies we go get the URL for the search we want -->
+                <!-- role implies this form's purpose is to go search something versus lik a quiz or something -->
+                <!-- CLARIFICATION: in the URL, hl=fr is for language while q= is for the query -->
+                <form role="search" method="get" id="searchform" action="http://www.google.ca/search?hl=fr&q=">
+                  <div id="GForm">
+                    <label class="screen-reader-text" for="search_input"></label>
+                    <input type="text" placeholder="rechercher Google" name="q" id="search_input">
+                    <button type="submit">Aller</button>
+                  </div>
+                </form>
+              </div>
             <div id = "footer">
                   Copyright &copy; 2019 Alec James van Rassel
             </div>
