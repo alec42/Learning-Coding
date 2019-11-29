@@ -34,11 +34,27 @@
                 <!-- method implies we go get the URL for the search we want -->
                 <!-- role implies this form's purpose is to go search something versus lik a quiz or something -->
                 <!-- CLARIFICATION: in the URL, hl=fr is for language while q= is for the query -->
+                <!-- CLARIFICATION: in the URL, required forces the user to enter something in order to click submit -->
                 <form role="search" method="get" id="searchform" action="http://www.google.ca/search?hl=fr&q=">
                   <div id="GForm">
                     <label class="screen-reader-text" for="search_input"></label>
-                    <input type="text" placeholder="rechercher Google" name="q" id="search_input">
+                    <input type="text" placeholder="rechercher Google" name="q" id="search_input" required>
                     <button type="submit">Aller</button>
+                  </div>
+                </form>
+                <br>
+                <form id="question-form">
+                  <h3>Préférer-vous allez dehors ou rester à l'intérieur?</h3>
+                  <br>
+                  <div class="inline-form">
+                    <label class="container-quiz">L'intérieur
+                      <input type="checkbox" checked="checked">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container-quiz">L'extérieur
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
                   </div>
                 </form>
               </div>

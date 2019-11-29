@@ -1,4 +1,4 @@
-/* 
+/*
     Code CSS site web Alec James van Rassel
     Copyright 2019 Alec James van Rassel
 */
@@ -14,14 +14,79 @@ h1, h2, h3 {
 /*********************************************
 
     Corps du site
-    
+
 **********************************************/
 
 #container {
-    background-color: white;
-    width: 800px;
-    margin-left: auto;    
-    margin-right: auto;
+  background-color: white;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-quiz {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  user-select: none;
+}
+/*
+  Cacher le checkbox de défaut du navigateur
+*/
+.container-quiz input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/*
+  Créer le checkmark custom
+*/
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee; /* créer une couleur grise pour le carré du checkbox */
+}
+
+.container-quiz:hover input ~ .checkmark {
+  background-color: #ccc; /* couleur plus grise pour lorsque la souris est au-dessus du checkbox*/
+}
+.container-quiz input:checked ~ .checkmark {
+  background-color: #2196F3; /* couleur bleu lorsque le checkbox est sélectionné */
+}
+/*
+  Créer le checkmark (l'indicateur)
+*/
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container-quiz input:checked ~ .checkmark:after {
+  display: block; /*montrer le checkmark lorsque sélectionné */
+}
+/*
+  Style du checkbox
+*/
+.container-quiz .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.inline-form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
 
 #header {
@@ -58,7 +123,7 @@ a {
     float: right;
 }
 /*********************************************
-    
+
     Footer du site
 
 **********************************************/
