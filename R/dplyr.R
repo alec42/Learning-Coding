@@ -21,4 +21,19 @@ flights %>%
               sd = sd(dep_delay), 
               n = n())
 
+###
+### Joins
+###
+state_name <- data.frame(cbind(state.abb, state.name))[1:30, ] 
+state_area <- data.frame(cbind(state.abb, state.area))[11:50, ] 
+
+View(left_join(state_name, state_area))
+View(left_join(state_area, state_name))
+state_inner <- inner_join(state_area, state_name)
+View(full_join(state_area, state_name))
+
+## with good syntax
+state_name %>% 
+    left_join(state_area, by = "state.abb")
+
 
