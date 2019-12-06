@@ -107,6 +107,23 @@
     ams align*
 %  	top=-10pt
 }
+\DeclareTColorBox{distributions}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=ashgrey, % color of the box
+%	colframe=blue(pigment),
+	colframe=arsenic,	
+	colbacktitle=aurometalsaurus,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
 %%
 %% Coloured box "algo" for algorithms
 %%
@@ -162,7 +179,9 @@
 \definecolor{bluebell}{rgb}{0.64, 0.64, 0.82}
 \definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
 \definecolor{amethyst-light}{rgb}{0.6, 0.4, 0.8}
-
+\definecolor{aurometalsaurus}{rgb}{0.43, 0.5, 0.5}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}			%	dark black-grey ish pastel
+\definecolor{ashgrey}{rgb}{0.7, 0.75, 0.71}
 %
 % Useful shortcuts for coloured text
 %
