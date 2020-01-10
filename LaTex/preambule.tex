@@ -25,7 +25,7 @@
 %% URL and links
 %% -----------------------------
 \usepackage{hyperref}
-\hypersetup{colorlinks = true, urlcolor = gray!70!white, linkcolor = black}
+\hypersetup{colorlinks = true, urlcolor = white, linkcolor = black}
 
 %% -----------------------------
 %% Document policy (uncomment only one)
@@ -87,7 +87,14 @@
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{xparse}
 \tcbuselibrary{breakable}
-
+%%	-----------------------------
+%%
+%%	Arguments
+%%	+	breakable: allows box to be split over several pages
+%%	+	segmentation style: To customize the \tcbline seperator
+%%	
+%%	-----------------------------
+%%
 %%
 %% Coloured box "definition" for definitions
 %%
@@ -124,6 +131,61 @@
 %    ams align*
 %  	top=-10pt
 }
+\DeclareTColorBox{outcomes}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=bluebell, % color of the box
+%	colframe=blue(pigment),
+%	colframe=asparagus,	
+	colbacktitle=airforceblue,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
+\DeclareTColorBox{ASM_chapter}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=darkseagreen, % color of the box
+%	colframe=blue(pigment),
+%	colframe=asparagus,	
+	colbacktitle=britishracinggreen,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+	segmentation style = {dashed, white},
+	breakable
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
+\DeclareTColorBox{YTB_vids}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=red_rectangle, % color of the box
+%	colframe=blue(pigment),
+%	colframe=asparagus,	
+	colbacktitle=lava,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+	segmentation style = {dashed, white},
+	breakable
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
 %%
 %% Coloured box "algo" for algorithms
 %%
@@ -139,7 +201,38 @@
 \newtcolorbox{formula}[ 1 ]
 {
 	colback = green!5!white,
-	colframe = green!70!black,
+	colframe = darkseagreen,
+	fonttitle = \bfseries,title=#1
+}
+%%
+%% Coloured box "CHPT_SUMM" pour résumés des chapitres de l'ASM
+%%
+\newtcolorbox{CHPT_SUMM}[ 1 ]
+{
+	colback = green!5!white,
+	colframe = darkseagreen,
+	breakable,
+	fonttitle = \bfseries,title=#1
+}
+%%
+%% Coloured box "FORMULA_SUMM" pour résumés des formules de l'ASM
+%%
+\newtcolorbox{FORMULA_SUMM}[ 1 ]
+{
+	colback = babyblueeyes,
+	colframe = airforceblue,
+	breakable,
+	fonttitle = \bfseries,title=#1
+}
+%%
+%% Coloured box "YTB_SUMM" pour résumés des vidéos Youtube
+%%
+\newtcolorbox{YTB_SUMM}[ 1 ]
+{
+	colback = red!5!white,
+	colframe = darkterracotta,
+	breakable,
+%	    frame hidden,
 	fonttitle = \bfseries,title=#1
 }
 
@@ -149,6 +242,18 @@
 \usepackage{graphicx}
 \usepackage{pict2e}
 \usepackage{tikz}
+%%
+%%	Creates circle 
+%%	Arguments:
+%%	+	size
+%%	+	colour
+%%	
+%%	Example:
+%%	+	\tikzcircle[green, fill=blue]{1.5pt}
+%%	+	\tikzcircle{2pt}
+%%
+\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}
+
 
 %% -----------------------------
 %% insert pdf pages into document
@@ -163,6 +268,16 @@
 %
 %	Colour definitions
 %
+\definecolor{darkterracotta}{rgb}{0.8, 0.31, 0.36}   % red pastel ish
+\definecolor{lava}{rgb}{0.81, 0.06, 0.13}
+\definecolor{wildwatermelon}{rgb}{0.99, 0.42, 0.52}  % red ish
+\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0} % rich red
+\definecolor{asparagus}{rgb}{0.53, 0.66, 0.42}		% sorta militarygreen but pastel
+\definecolor{darkseagreen}{rgb}{0.56, 0.74, 0.56}    % pastel light green
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15} %dark green
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}	% nice teal blue pastel
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}	% pastel blue-ish
+\definecolor{applegreen}{rgb}{0.55, 0.71, 0.0}		% green with some aqua
 \definecolor{indigo(web)}{rgb}{0.29, 0.0, 0.51}
 \definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
 \definecolor{azure(colorwheel)}{rgb}{0.0, 0.5, 1.0}

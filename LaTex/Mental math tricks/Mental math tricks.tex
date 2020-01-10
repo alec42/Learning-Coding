@@ -1,0 +1,115 @@
+\documentclass[10pt, french]{article}
+%% -----------------------------
+%% Préambule
+%% -----------------------------
+\input{../preambule.tex}
+%% -----------------------------
+%% Redefine from template
+%% -----------------------------
+\def\auteur{Alec James van Rassel}
+%% -----------------------------
+%% Variable definition
+%% -----------------------------
+\def\cours{Secrets of mental math}
+%\def\sigle{Arthur Ben}
+\usepackage[landscape, hmargin=1cm, vmargin=1.7cm]{geometry}
+\usepackage{multicol}
+
+%% -----------------------------
+%% Colour setup for sections
+%% -----------------------------
+\def\SectionColor{burntorange}
+\def\SubSectionColor{burntsienna}
+\def\SubSubSection{burntsienna}
+
+% 
+% Débute numérotation des chapitres à 2 pour suivre les notes de Marie-Piere.
+% 
+\setcounter{section}{1}
+
+%% -----------------------------
+%% Début du document
+%% -----------------------------
+\begin{document}
+
+\begin{multicols*}{3} 
+\section*{Quick tricks}
+\begin{CHPT_SUMM}{Multiplication by 11}
+We insert the sum between the 2 original numbers.
+For example:
+	\begin{align*}
+		33 \times 11	
+		&=	3 \textcolor{cyan}{6}3
+	\end{align*}
+If the sum is more than 9, we simply carry over. 
+For example:
+	\begin{align*}
+		93 \times 11	
+		&=	\textcolor{teal}{10} \textcolor{cyan}{2} 3
+	\end{align*}
+where we had $9 + 3 = 12$.
+If we want to multiply larger numbers, the same rule carries over.
+For example:
+	\begin{align*}
+		427 \times 11
+		&=	4 \textcolor{teal}{6} \textcolor{cyan}{9}7
+	\end{align*}
+where we had $\textcolor{teal}{4 + 2 = 6}$ and $\textcolor{cyan}{2 + 7 = 9}$.
+\end{CHPT_SUMM}
+
+\begin{CHPT_SUMM}{Multiplying 2 numbers whose first digit is the same and whose second sums to 10}
+The procedure is to multiply the first digit by the next number and to multiply the second digits together.
+For example :
+	\begin{align*}
+	35 \times 35
+	&=	\textcolor{teal}{12}\textcolor{cyan}{25}
+	\end{align*}
+with $\textcolor{teal}{3 \times 4 = 12}$ and $\textcolor{teal}{5 \times 5 = 25}$.
+
+It is important to have 2 digits for the multiplication of the second digit. 
+For example:
+	\begin{align*}
+	31 \times 39
+	&=	\textcolor{teal}{12}\textcolor{cyan}{09}
+	\end{align*}
+with $\textcolor{teal}{3 \times 4 = 12}$ and $\textcolor{teal}{1 \times 9 = 09}$.
+\end{CHPT_SUMM}
+
+\begin{CHPT_SUMM}{Squaring any number}
+The algebraic formula is, where $A$ and $d$ are integers, $A^{2} = (A + d) \times (A - d) + d^{2}$.
+For example:
+	\begin{align*}
+	98^{2}	
+	&=	100 \times 96 + 2^{2}
+	=	960\textcolor{teal}{4}
+	\end{align*}
+with the number $\textcolor{teal}{2}$ being added and substracted and from $98$.
+
+We can generalize this to 3 digit numbers.
+For example:
+	\begin{align*}
+	212^{2}	
+	&=	2\textcolor{teal}{00} \times 224 + 12^{2}	\\
+	&=	448\textcolor{teal}{00} + 144
+	=	44944
+	\end{align*}
+	
+Because we round down to the nearest hundred, we only have to multiply the first digit.
+\end{CHPT_SUMM}
+
+\begin{CHPT_SUMM}{Multiplying numbers between 10 and 20}
+We add the second digit of the second number to the first and add the multiple of the second digit for both numbers.
+For example:
+	\begin{align*}
+	17 \times 14
+	&=	\textcolor{cyan}{(17 + 4)} \times \textcolor{amethyst}{10} + \textcolor{teal}{7 \times 4}	\\
+	&=	\textcolor{cyan}{21}\textcolor{amethyst}{0} + \textcolor{teal}{28}	
+	=	238
+	\end{align*}
+\end{CHPT_SUMM}
+
+\end{multicols*}
+%% -----------------------------
+%% Fin du document
+%% -----------------------------
+\end{document}
