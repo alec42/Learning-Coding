@@ -7,36 +7,51 @@
 \sectionfont{\color{cobalt}}
 \subsectionfont{\color{indigo(web)}}
 \begin{document}
-\title{Preuves mathématiques (ironiques)}
+\title{Ironic proofs}
 \vspace{-8ex}
 \date{}
 \author{Alec James van Rassel}
 \maketitle
 
 \tableofcontents
+\setcounter{secnumdepth}{-1}
+
 \clearpage
 
-\section*{Preuve de l'homogénéité du $\sin(x)$}
-
-\begin{theorems}[Théorème]
-%\begin{center}
-%	\begin{align*}
-	-\sin(x)&=	\sin(-x) 
-%	\end{align*}
-%\end{center}
-\end{theorems}
-\clearpage
-
-\section*{Proof of equivalence of addition to multiplication in the definition of the factorial}
+%\addcontentsline{toc}{section}{Unnumbered Section}
+\section{Proof of homogeneity of the sinal function}
 
 \begin{theorems}[Theorem]
-%\begin{center}
-%	\begin{align*}
+	-\sin(x)&=	\sin(-x) 
+\end{theorems}
+
+\begin{distributions}[Proof]
+\begin{enumerate}
+	\item	We define:
+		\begin{align*}
+		sign(x)	&=	\textcolor{blue}{+}	&
+		sign(-x)	&=	\textcolor{red}{-}
+		\end{align*}
+	\item	We apply the \textcolor{purple}{\textbf{phonetic equivalence principle}} of $\sin$ and $sign$:
+		\begin{align*}
+						-\sin(x)					&=	\sin(-x)	\\		
+		\Leftrightarrow	-sign(x)					&=	sign(-x)		\quad	\text{\textcolor{purple}{by phonetic equivalence}}\\		
+		\Leftrightarrow	-(\textcolor{blue}{+})	&=	\textcolor{red}{-}	\\		
+		\Rightarrow	\textcolor{red}{-}		&=	\textcolor{red}{-}	
+		\end{align*}		
+	\item[$\therefore$]	$-\sin(x)=	\sin(-x)$
+\end{enumerate}
+\end{distributions}
+$\blacksquare$
+
+\clearpage
+
+\section{Proof of equivalence of addition to multiplication in the definition of the factorial}
+
+\begin{theorems}[Theorem]
 	n!	
 	&=	\overset{n - 1}{\underset{i = 0}{\prod}} (n - i)	
 	\Leftrightarrow		\overset{n - 1}{\underset{i = 0}{\sum}} (n - i)	
-%	\end{align*}
-%\end{center}
 \end{theorems}
 
 \begin{distributions}[Proof]
@@ -81,5 +96,27 @@
 \end{minipage}
 \end{formula}
 $\blacksquare$
+
+\clearpage
+
+\section{Proof of Taylor Expansion}
+
+\begin{distributions}[Proof]
+\begin{enumerate}[label = \roman*.]
+	\item	Taylor;
+	\item	T\ a\ y\ l\ o\ r;
+	\item	T\, a\, y\, l\, o\, r;
+	\item	T\: a\: y\: l\: o\: r;
+	\item	T\; a\; y\; l\; o\; r;
+	\item	T\;\; a\;\; y\;\; l\;\; o\;\; r;
+	\item	T\;\;\quad a\;\;\quad y\;\;\quad l\;\;\quad o\;\;\quad r;
+	\item	T\;\;\quad\quad a\;\;\quad\quad y\;\;\quad\quad l\;\;\quad\quad o\;\;\quad\quad r;
+	\item	T\;\;\quad\quad\quad a\;\;\quad\quad\quad y\;\;\quad\quad\quad l\;\;\quad\quad\quad o\;\;\quad\quad\quad r;
+	\item	T\;\;\quad\quad\quad\quad a\;\;\quad\quad\quad\quad y\;\;\quad\quad\quad\quad l\;\;\quad\quad\quad\quad o\;\;\quad\quad\quad\quad r;
+\end{enumerate}
+\end{distributions}
+$\blacksquare$
+
+\clearpage
 
 \end{document}
