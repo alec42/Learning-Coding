@@ -25,5 +25,61 @@
 %	\end{align*}
 %\end{center}
 \end{theorems}
+\clearpage
+
+\section*{Proof of equivalence of addition to multiplication in the definition of the factorial}
+
+\begin{theorems}[Theorem]
+%\begin{center}
+%	\begin{align*}
+	n!	
+	&=	\overset{n - 1}{\underset{i = 0}{\prod}} (n - i)	
+	\Leftrightarrow		\overset{n - 1}{\underset{i = 0}{\sum}} (n - i)	
+%	\end{align*}
+%\end{center}
+\end{theorems}
+
+\begin{distributions}[Proof]
+\begin{enumerate}
+	\item	It is known that:
+		\begin{align*}
+		n!	
+		&=	\overset{n - 1}{\underset{i = 0}{\prod}} (n - i)	
+		=	(n - 0) \times (n - 1) \times \dots \times 1
+		\end{align*}
+	\item	We apply the \textcolor{red}{\textbf{rotation property}} of multiplication
+		\begin{align*}
+		n!	
+		=	\overset{n - 1}{\underset{i = 0}{\prod}} (n - i)	
+		&=	(n - 0)\ \textcolor{black}{\times}\ (n - 1)\ \textcolor{black}{\times}\ \dots\ \textcolor{black}{\times}\ 1	\\
+		&=	(n - 0)\ \textcolor{red}{\overset{\curvearrowright}{+}}\ (n - 1)\ \textcolor{red}{\overset{\curvearrowright}{+}}\ \dots\ \textcolor{red}{\overset{\curvearrowright}{+}}\ 1	\\
+		&=	(n - 0)\ \textcolor{black}{+}\ (n - 1)\ \textcolor{black}{+}\ \dots\ \textcolor{black}{+}\ 1	\\
+		&=	\overset{n - 1}{\underset{i = 0}{\sum}} (n - i)	
+		\end{align*}		
+	\item[$\therefore$]	$n!	=	\overset{n - 1}{\underset{i = 0}{\sum}} (n - i)$
+\end{enumerate}
+\end{distributions}
+
+\begin{formula}{Examples of application}
+\begin{minipage}{0.5\linewidth}
+\begin{align*}
+	3!
+	&=	\overset{3 - 1}{\underset{i = 0}{\prod}} (3 - i)
+	=	3 \times 2 \times 1	= 6	\\
+	&\Leftrightarrow	\overset{3 - 1}{\underset{i = 0}{\sum}}
+	=	3 + 2 + 1 = 6
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{align*}
+	1!
+	&=	\overset{1 - 1}{\underset{i = 0}{\prod}}
+	=	1	\\
+	&\Leftrightarrow		\overset{1 - 1}{\underset{i = 0}{\sum}} (1 - i)	
+	=	1
+\end{align*}
+\end{minipage}
+\end{formula}
+$\blacksquare$
 
 \end{document}
