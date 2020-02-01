@@ -1,0 +1,154 @@
+\documentclass[12pt, titlepage, french]{report}
+\input{../../preambule.tex}
+%% -----------------------------
+%% Section Font customization
+%% -----------------------------
+%\title{
+%	Study Guide	\\
+%	\large Exam YYY: Name-of-Exam\\
+%	Society of Actuaries (SOA)
+%%	Casualty Actuarial Society (CAS)
+%	}
+%\vspace{-8ex}
+%\date{}
+%\author{Alec James van Rassel}
+
+\begin{document}
+
+%\maketitle
+
+\tableofcontents
+
+\clearpage
+
+\part*{Statistics}
+
+\section*{Missing Data}
+
+\begin{YTB_vids}[Vidéos YouTube]
+\begin{itemize}
+	\item	\nameref{rvm-MCAR-etal}
+	\item	\nameref{rvm-MCAR-etal-deal}
+	\item	\nameref{rvm-MCAR-etal-mult}
+	\item	
+\end{itemize}
+\end{YTB_vids}
+
+\subsection*{Notes sur les vidéos YouTube}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {rvm-MCAR-etal}]{\href{https://www.youtube.com/watch?v=XnnA9z7lv4Q}{ritvikmath: Missing Data Mechanisms
+}}
+\begin{itemize}[leftmargin = *]
+	\item	MCAR
+		\begin{itemize}
+		\item	Librarians forget to enter the data completely randomly;
+		\end{itemize}
+	\item	MAR
+		\begin{itemize}
+		\item	Women are 90\% likely to respond to a survey on the number of overdue books while men are 70\% likely to respond;
+		\end{itemize}
+	\item	MNAR: \textbf{The missingness of a certain value depends on the true value itself}
+		\begin{itemize}
+		\item	For example:
+			\begin{itemize}
+			\item	If I have 0 books overdue, I'm 90\% likely to respond to a question asking how many overdue books I have;
+			\item	If I have 1 books overdue, I'm 80\% likely to respond to a question asking how many overdue books I have;
+			\item	If I have 2 books overdue, I'm 70\% likely to respond to a question asking how many overdue books I have;
+			\item	\dots
+			\end{itemize}
+		\item	So, the more books I have that are overdue, the less likely I am to respond to a question asking how many books I have that are overdue because I may be embarassed or feel shame;
+		\item	Therefore MNAR is kind of a \textbf{chicken and egg} scenario;
+			\begin{itemize}
+				\item	If try to figure if a column is MNAR, need to figure out if those missing values are based on the actual values;
+				\item	But, I \textit{don't know} the \textbf{actual} values of that column because they're missing in the first place!
+				\item	So it's really hard to figure out if something is MNAR;
+			\end{itemize}
+		\end{itemize}
+	\begin{itemize}
+	\item	In comparision, MCAR and MAR are easier to figure out if something is one or the other;
+	\item	Can slice a dataset by values of a column
+		\begin{itemize}
+		\item	For example, by sex or by age group, \dots;
+		\item	If missing value rate is about the same for all different slices then likely to be Missing Completely At Random;
+		\item	If however it's different for each slice, then it's likely MAR;
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {rvm-MCAR-etal-deal}]{\href{https://www.youtube.com/watch?v=qIXHLZJJ42U}{ritvikmath: Dealing With Missing Data Part I}}
+\begin{itemize}[leftmargin = *]
+	\item	a
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {rvm-MCAR-etal-mult}]{\href{https://www.youtube.com/watch?v=LMsULWGtP2c}{ritvikmath: Dealing With Missing Data - Multiple Imputation}}
+\begin{itemize}[leftmargin = *]
+	\item	Row deletion;	
+		\begin{itemize}
+		\item	Most common and easiest;
+		\item	Omit any row in dataset with a missing value---pretend it does not exist;
+		\item	Seems too good to be true because it usually is;
+		\item	Can only do this if the data is Missing Completely At Random---biased otherwise;
+		\item[]	Makes sense if you reason that any other way you'd obviously be creating a bias in your data;
+		\item[]	Each column would have missing values completely at random and without respect to, for example, the gender and the estimations would be \textit{unbiased};
+		\item	Thus, have to be very careful it's really what we want to do because likely cause bias if there's any sort of relationship between the missing variables and other columns;
+		\end{itemize}
+	\begin{center}
+	\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}c |}
+	\hline\rowcolor{airforceblue} 
+		\textcolor{white}{\textbf{Pros}}	&	\textcolor{white}{\textbf{Cons}}	\\
+simple	&	\textbf{biased}	\\\hline
+	\end{tabular}
+	\end{center}
+	\item	Mean/Median imputation;
+		\begin{itemize}
+		\item	A little more \og clever \fg{};
+		\item	\textbf{Seems} intuitive and is pretty simple;
+		\item	Mean
+			\begin{itemize}[leftmargin = *]
+			\item	Fill in, for example, 1.8 as the average of a few discrete values;
+			\item	BUT, will \textbf{artifically} \textit{reduce variability} of the data;
+			\item	\textit{Seem} like several values have the exact same value;
+			\end{itemize}
+		\item	Median is the same idea but will overepresent one fixed value;
+		\end{itemize}
+	\begin{center}
+	\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}c |}
+	\hline\rowcolor{airforceblue} 
+		\textcolor{white}{\textbf{Pros}}	&	\textcolor{white}{\textbf{Cons}}	\\
+simple	&	\textbf{lower variability}	\\\hline
+	\end{tabular}
+	\end{center}
+	\item	Hot Deck methods;
+		\begin{itemize}
+		\item	Most clever so far;
+		\item	Any family of methods where:
+			\begin{itemize}[leftmargin = *]
+			\item	Compute a missing value based on the value of examples that are \textit{similar} to it;
+			\end{itemize}
+		\item	For example
+			\begin{itemize}
+			\item	Fill in the missing value of a female by the average of only other females;
+			\end{itemize}
+		\item	Better because imputing more information (whether someone is female or male);
+			\begin{itemize}
+			\item	Imagine if there's a bunch of columns (income, family members, where they live, etc.);
+			\item	Then, we can input missing values based on a few people that are really similar to the missing person;
+			\item	Logical as we would expect that person's missing value to be similar to other similar people's;
+			\end{itemize}
+		\item	\textbf{May not be true}, but it's a very \textit{\textbf{educated} guess};
+		\end{itemize}
+	\begin{center}
+	\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}c |}
+	\hline\rowcolor{airforceblue} 
+		\textcolor{white}{\textbf{Pros}}	&	\textcolor{white}{\textbf{Cons}}	\\
+more educated	&	more (computationnaly) expensive	\\\hline
+	\end{tabular}
+	\end{center}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\newpage
+
+\end{document}
