@@ -18,8 +18,8 @@
 %%% Margin and layout
 %%% -----------------------------
 %% Determine the margin for cheatsheet
-%\usepackage[landscape, hmargin=1cm, vmargin=1.7cm]{geometry}
-%\usepackage{multicol}
+\usepackage[landscape, hmargin=1cm, vmargin=1.7cm]{geometry}
+\usepackage{multicol}
 
 %% -----------------------------
 %% URL and links
@@ -235,7 +235,23 @@
 %	    frame hidden,
 	fonttitle = \bfseries,title=#1
 }
-
+\newtcolorbox[auto counter, list inside = CHPT]{YTB_SUMM_AUTO_NUMB}[ 2 ][]
+{
+	colback = red!5!white,
+	colframe = darkterracotta,
+	breakable,
+	enhanced,
+	fonttitle = \bfseries,
+	title = Video~\thetcbcounter: #2, 		
+%	title = #2,
+	nameref = #2,
+	after upper = {\addcontentsline{toc}{subsubsection}{\thetcbcounter: #2}},
+%	phantomlabel = {#2},
+	#1
+}
+%%
+%% Coloured box "FORMULA_SUMM" pour résumés des formules de l'ASM
+%%
 %% -----------------------------
 %% Graphics and pictures
 %% -----------------------------
@@ -268,6 +284,7 @@
 %
 %	Colour definitions
 %
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
 \definecolor{darkterracotta}{rgb}{0.8, 0.31, 0.36}   % red pastel ish
 \definecolor{lava}{rgb}{0.81, 0.06, 0.13}
 \definecolor{wildwatermelon}{rgb}{0.99, 0.42, 0.52}  % red ish
@@ -297,6 +314,7 @@
 \definecolor{aurometalsaurus}{rgb}{0.43, 0.5, 0.5}
 \definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}			%	dark black-grey ish pastel
 \definecolor{ashgrey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
 %
 % Useful shortcuts for coloured text
 %
@@ -347,14 +365,20 @@
 %%% -----------------------------
 %%% Footer/Header Customization
 %%% -----------------------------
-%\usepackage{lastpage}
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 %%
 %% Page background color
 %%
-%\pagecolor{\BackgroundColor}
+\pagecolor{white}
 
+%% -----------------------------
+%% Section Font customization
+%% -----------------------------
+\usepackage{sectsty}
+\sectionfont{\color{\SectionColor}}
+\subsectionfont{\color{\SubSectionColor}}
 
 
 
