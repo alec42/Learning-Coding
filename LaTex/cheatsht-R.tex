@@ -2,7 +2,7 @@
 %% -----------------------------
 %% Préambule
 %% -----------------------------
-\input{cheatsht-preamble-general.tex}
+\input{preambule.tex}
 %% -----------------------------
 %% Redefine from template
 %% -----------------------------
@@ -18,7 +18,25 @@
 \def\SectionColor{burntorange}
 \def\SubSectionColor{burntsienna}
 \def\SubSubSection{burntsienna}
-
+\usepackage{multicol}
+\DeclareTColorBox{distributions}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=ashgrey, % color of the box
+%	colframe=blue(pigment),
+	breakable,
+	colframe=arsenic,	
+	colbacktitle=aurometalsaurus,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
 % 
 % Débute numérotation des chapitres à 2 pour suivre les notes de Marie-Piere.
 % 
@@ -29,11 +47,34 @@
 %% -----------------------------
 \begin{document}
 
-\begin{multicols*}[3] 
+\begin{multicols*}{2}
 \section*{Structure of data}
 \begin{itemize}
 	\item	\texttt{str()}: Décrit la \textbf{str}ucture des données.
 \end{itemize}
+
+\section*{Time Series (Introductory Time Series with \texttt{R})}
+\begin{distributions}[Time Series Data]
+\begin{description}
+	\item[\texttt{ts}]	produces a time series object;
+	\item[\texttt{aggregate}]	creates an aggregated series;
+		\begin{itemize}
+		\item[\texttt{aggregate(FUN = mean)}]	returns the mean of the series and is equivalent to dividing by the frequency (12 for example);
+		\end{itemize}
+	\item[\texttt{ts.plot}]	produces a time series plot for one (or more) series;
+	\item[\texttt{window}]	extracts a subset of a time series;
+	\item[\texttt{time}]	extracts the time from a time series object;
+	\item[\texttt{ts.intersect}]	creates the intersection of one (or more) time series;
+	\item[\texttt{cycle}]	returns the season for each value in a time series;
+	\item[\texttt{decompose}]	decompose a time series into the components;
+		\begin{enumerate}
+		\item	Trend;
+		\item	Seasonal effect;
+		\item	Residual.
+		\end{enumerate}
+	\item[\texttt{stl}]	decomposes a time series using loess smoothing;
+\end{description}
+\end{distributions}
 \end{multicols*}
 %% -----------------------------
 %% Fin du document
