@@ -78,12 +78,6 @@
 
 \begin{YTB_SUMM_AUTO_NUMB}[label = {rvm-MCAR-etal-deal}]{\href{https://www.youtube.com/watch?v=qIXHLZJJ42U}{ritvikmath: Dealing With Missing Data Part I}}
 \begin{itemize}[leftmargin = *]
-	\item	a
-\end{itemize}
-\end{YTB_SUMM_AUTO_NUMB}
-
-\begin{YTB_SUMM_AUTO_NUMB}[label = {rvm-MCAR-etal-mult}]{\href{https://www.youtube.com/watch?v=LMsULWGtP2c}{ritvikmath: Dealing With Missing Data - Multiple Imputation}}
-\begin{itemize}[leftmargin = *]
 	\item	Row deletion;	
 		\begin{itemize}
 		\item	Most common and easiest;
@@ -146,6 +140,32 @@ simple	&	\textbf{lower variability}	\\\hline
 more educated	&	more (computationnaly) expensive	\\\hline
 	\end{tabular}
 	\end{center}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {rvm-MCAR-etal-mult}]{\href{https://www.youtube.com/watch?v=LMsULWGtP2c}{ritvikmath: Dealing With Missing Data - Multiple Imputation}}
+\begin{itemize}[leftmargin = *]
+	\item	\textit{single} imputation implique qu'on se ramasse avec une seule valeur (peu importe ce que c'est);
+		\begin{itemize}
+		\item	Régression, moyenne, médiane, etc. sont tous une seule valeur.
+		\end{itemize}
+	\item	\textit{multiple} imputation even more clever than hot-deck methods;
+	\item	For example, regression of library fees in function of kilometer distance from the library
+		\begin{itemize}[leftmargin = *]
+		\item	Sample 50 data points from thousands, and estimate fees for a given distance;
+		\item	Repeat with different samples;
+		\item[]	Generally the more repetitions, the less biased the estimations but 5 is a good rule of thumb;
+		\item	Treat each predicted value as a complete observation;
+		\item	Then with this "complete" data set, we do what we want;
+		\item	Take some kind of aggregate of all the values we wanted from each of 5-ish set;
+		\item	Analyze how far from each other the aggregated values are;
+		\item[]	If a lot of variability, bad;
+		\item[]	If few variability, good-ish because means aggregated values are closer.	
+		\end{itemize}
+		\begin{center}
+			\includegraphics[scale=0.3]{src/ritvikmath-multiple-imputation.png}
+		\end{center}
+	\item	Cons: complicated.
 \end{itemize}
 \end{YTB_SUMM_AUTO_NUMB}
 
