@@ -1,0 +1,193 @@
+\documentclass[10pt, french]{article}
+%% -----------------------------
+%% Préambule
+%% -----------------------------
+\input{preambule.tex}
+%% -----------------------------
+%% Redefine from template
+%% -----------------------------
+\def\auteur{Alec James van Rassel}
+%% -----------------------------
+%% Variable definition
+%% -----------------------------
+\def\cours{Norwegian}
+\def\sigle{Duolingo}
+%% -----------------------------
+%% Colour setup for sections
+%% -----------------------------
+\def\SectionColor{burntorange}
+\def\SubSectionColor{burntsienna}
+\def\SubSubSection{burntsienna}
+\usepackage{multicol}
+\usetikzlibrary{matrix}
+
+\DeclareTColorBox{distributions}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=ashgrey, % color of the box
+%	colframe=blue(pigment),
+	breakable,
+	colframe=arsenic,	
+	colbacktitle=aurometalsaurus,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
+% 
+% Débute numérotation des chapitres à 2 pour suivre les notes de Marie-Piere.
+% 
+\setcounter{section}{1}
+
+%% -----------------------------
+%% Début du document
+%% -----------------------------
+\begin{document}
+
+\begin{multicols*}{2}
+\section*{Tips and tricks}
+\subsection*{Pronouns}
+\begin{tikzpicture}
+\clip node (m) [
+	matrix,
+	matrix of nodes,
+	fill = black!20, % alternating rows color
+	inner sep = 1pt, % width of exterior line
+	nodes in empty cells,
+	nodes = {
+		minimum height = 1cm,
+		minimum width = 2.6cm,
+		anchor = center,
+		outer sep = 0,
+		font = \sffamily
+	},
+	row 1/.style = {
+		nodes = {
+			fill = ballblue,  % header colour
+			text = white,
+			font = \bfseries
+		}
+	},
+%	column 1/.style = {
+%		nodes = {
+%			fill = gray,
+%			text = white,
+%			align = right,
+%			text width = 2.5cm,
+%			text depth = 0.5ex
+%		}
+%	},
+	column 1/.style = {
+		text width = 4cm, 
+		align = center,
+		nodes = {
+			font = \bfseries
+		},
+		every even row/.style = {
+			nodes = {
+				fill = white
+			}
+		}
+	},
+	column 2/.style = {
+		text width = 3cm,
+		align = center,
+		every even row/.style = {nodes = {fill = white}},
+	},
+%	row 1 column 1/.style = {nodes = {fill = gray}},
+	prefix after command = {
+		[rounded corners = 4mm] (m.north east) rectangle (m.south west)
+	}
+] {
+	Norwegian	&	English \\
+	Jeg	&	I	\\
+	du	&	you	\\
+	han	&	he	\\
+	hun	&	she	\\
+	det	&	it	\\
+};
+\end{tikzpicture}
+
+\subsection*{Verbs}
+\begin{tikzpicture}
+\clip node (m) [
+	matrix,
+	matrix of nodes,
+	fill = black!20, % alternating rows color
+	inner sep = 1pt, % width of exterior line
+	nodes in empty cells,
+	nodes = {
+		minimum height = 1cm,
+		minimum width = 2.6cm,
+		anchor = center,
+		outer sep = 0,
+		font = \sffamily
+	},
+	row 1/.style = {
+		nodes = {
+			fill = ballblue,  % header colour
+			text = white,
+			font = \bfseries
+		}
+	},
+%	column 1/.style = {
+%		nodes = {
+%			fill = gray,
+%			text = white,
+%			align = right,
+%			text width = 2.5cm,
+%			text depth = 0.5ex
+%		}
+%	},
+	column 1/.style = {
+		text width = 4cm, 
+		align = center,
+		nodes = {
+			font = \bfseries,
+			fill = lightgray
+		}
+	},
+	column 2/.style = {
+		text width = 3cm,
+		align = center,
+		nodes = {
+			fill = white
+		}
+	},
+	column 3/.style = {
+		text width = 3cm,
+		align = center,
+		nodes = {
+			font = \bfseries,
+			fill = lightgray
+		}
+	},
+	column 4/.style = {
+		text width = 3cm,
+		align = center,
+		nodes = {
+			fill = white
+		}
+	},
+%	row 1 column 1/.style = {nodes = {fill = gray}},
+	prefix after command = {
+		[rounded corners = 4mm] (m.north east) rectangle (m.south west)
+	}
+] {
+	Singular	&	&	Plural	&\\
+	Jeg er	&	I am	&	vi er	&	we are	\\
+	du er	&	you are	&	dere er	&	 you are	\\
+	han, hun, det, er	&	he, she, it, is	&	de er	&	they are	\\
+};
+\end{tikzpicture}
+
+\end{multicols*}
+%% -----------------------------
+%% Fin du document
+%% -----------------------------
+\end{document}
