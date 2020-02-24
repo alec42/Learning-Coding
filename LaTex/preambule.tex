@@ -118,9 +118,26 @@
 {
 	enhanced,
 	title = #1,
-	colback=ashgrey, % color of the box
+	colback=ashgray, % color of the box
 %	colframe=blue(pigment),
-	colframe=arsenic,	
+	colframe=lightgray,	
+	colbacktitle=aurometalsaurus,
+	fonttitle = \bfseries,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
+%	left=0pt,
+%  	right=0pt,
+%    box align=center,
+%    ams align*
+%  	top=-10pt
+}
+\DeclareTColorBox{astuces}{ o }			% #1 parameter
+{
+	enhanced,
+	title = #1,
+	colback=beaublue, % color of the box
+%	colframe=blue(pigment),
+	colframe=ballblue,	
 	colbacktitle=aurometalsaurus,
 	fonttitle = \bfseries,
 	boxed title style={size=small,colframe=arsenic} ,
@@ -317,6 +334,7 @@
 \definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
 \definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
 \definecolor{lightgray}{rgb}{0.83, 0.83, 0.83}
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
 %
 % Useful shortcuts for coloured text
 %
