@@ -13,6 +13,8 @@
 %\date{}
 %\author{Alec James van Rassel}
 
+
+
 \begin{document}
 
 %\maketitle
@@ -30,7 +32,6 @@
 	\item	\nameref{rvm-MCAR-etal}
 	\item	\nameref{rvm-MCAR-etal-deal}
 	\item	\nameref{rvm-MCAR-etal-mult}
-	\item	
 \end{itemize}
 \end{YTB_vids}
 
@@ -70,7 +71,7 @@
 		\begin{itemize}
 		\item	For example, by sex or by age group, \dots;
 		\item	If missing value rate is about the same for all different slices then likely to be Missing Completely At Random;
-		\item	If however it's different for each slice, then it's likely MAR;
+		\item	If, however, it's different for each slice, then it's likely MAR;
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -102,7 +103,7 @@ simple	&	\textbf{biased}	\\\hline
 		\item	Mean
 			\begin{itemize}[leftmargin = *]
 			\item	Fill in, for example, 1.8 as the average of a few discrete values;
-			\item	BUT, will \textbf{artifically} \textit{reduce variability} of the data;
+			\item	BUT, will \textbf{artificially} \textit{reduce variability} of the data;
 			\item	\textit{Seem} like several values have the exact same value;
 			\end{itemize}
 		\item	Median is the same idea but will overepresent one fixed value;
@@ -137,7 +138,7 @@ simple	&	\textbf{lower variability}	\\\hline
 	\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}c |}
 	\hline\rowcolor{airforceblue} 
 		\textcolor{white}{\textbf{Pros}}	&	\textcolor{white}{\textbf{Cons}}	\\
-more educated	&	more (computationnaly) expensive	\\\hline
+more educated	&	more (computationally) expensive	\\\hline
 	\end{tabular}
 	\end{center}
 \end{itemize}
@@ -170,5 +171,407 @@ more educated	&	more (computationnaly) expensive	\\\hline
 \end{YTB_SUMM_AUTO_NUMB}
 
 \newpage
+
+
+\section*{Regularisation}
+
+\begin{YTB_vids}[Vidéos YouTube]
+\begin{itemize}
+	\item	\nameref{SQ-reg-3-elasticnet}
+\end{itemize}
+\end{YTB_vids}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-reg-3-elasticnet}]{\href{https://www.youtube.com/watch?v=1dKRdX9bfIo&feature=youtu.be}{Regularization Part 3: Elastic Net Regression}}
+\begin{itemize}[leftmargin = *]
+	\item	Lasso est optimal lorsque le modèle contient beaucoup de variables \textit{inutiles} puisqu'ils les éliminent.
+	 		Il permet de créer un modèle plus simple qui sera plus facilement interprétable. 
+	\item	En contraste, la régression Ridge est optimale lorsque le modèle contient beaucoup de variables qui sont \textit{majoritairement utiles}. Il permet de réduire l'importance des variables en diminuant leurs coefficients, mais n'ira pas si loin que les éliminer.
+	\item	Mais quoi faire lorsqu'il y a encore plus de variables??
+	\item	For example, with big data there are millions of variables—far too many to know everything about them.
+	\item	So, \hl{when there are many variables you almost certainly need some sort of regularization to estimate parameters}.
+	\item	In this scenario, you don't have to choose between Ridge and Lasso instead you just use \textbf{Elastic-Net Regression}.
+		\begin{itemize}[leftmargin = *]
+		\item	Start with least squares (like Lasso and Ridge).
+		\item	Combine the Lasso $\lambda_{1}$ and Ridge $\lambda_{2}$ penalties.
+		\end{itemize}
+		\begin{align*}
+		SS(\text{residuals}) \textbf{\Large{+}} 
+		\lambda_{1} |\text{parameter}_{1}| + \dots + |\text{parameter}_{X}| \textbf{\Large{+}}
+		\lambda_{2} \text{parameter}_{1}^{2} + \dots + \text{parameter}_{Y}^{2}
+		\end{align*}
+	\item	The regression penalty coefficients $\lambda_{1}$ and $\lambda_{2}$, use CV.
+		\begin{center}
+			\begin{tabular}{|	c	|	c	|	c	|}
+			\hline
+			Lasso parameter		&	Ridge parameter		&	Regression	\\\hline
+			$\lambda_{1} = 0$	&	$\lambda_{2} = 0$	&	Ordinary Least Squares 	\\
+			$\lambda_{1} > 0$	&	$\lambda_{2} = 0$	&	Lasso 	\\
+			$\lambda_{1} = 0$	&	$\lambda_{2} > 0$	&	Ridge 	\\
+			$\lambda_{1} > 0$	&	$\lambda_{2} > 0$	&	Elastic Net 	\\\hline
+			\end{tabular}
+		\end{center}
+	\item	Elastic Net is particularly good at dealing with situations where there are correlations between parameters.
+		\begin{itemize}
+		\item	Lasso tends to pick just one of the correlated terms and eliminate the others.
+		\item	Ridge tends to shrink all of the correlated variables parameters together.
+		\item	Elastic Net groups and shrinks the correlated variables’ parameters and either leaves them or removes all of them.
+		\end{itemize}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\section*{Trees}
+
+\begin{YTB_vids}[Vidéos YouTube]
+\begin{itemize}
+	\item	\nameref{SQ-RF-PT1}
+	\item	\nameref{SQ-RF-PT2}
+	\item	\nameref{SQ-RF-R}
+\end{itemize}
+\end{YTB_vids}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-RF-PT1}]{\href{https://www.youtube.com/watch?v=J4Wdy0Wc_xQ&feature=youtu.be}{StatQuest: Random Forests Part 1 - Building, Using and Evaluating}}
+\begin{itemize}[leftmargin = *]
+	\item	The only caveat of CARTs are that they are very inaccurate for new data.
+	\item	Thus, random forests permit us to combine the simplicity of decision trees with flexibility for much better accuracy.
+	\item	To create a random forest:
+		\begin{itemize}[leftmargin = *]
+		\item	Create a bootstrapped dataset.
+		\item	Create a decision tree with the bootstrapped dataset only considering a random subset of the variables at each step.
+		\item	Repeat with a new bootstrapped dataset (usually hundreds of times).
+		\item	To get a prediction, we run our observation through the decision trees and the result with the most votes is the prediction:
+		\begin{center}
+			\includegraphics[scale=0.4]{src/SQ-RF-VOTE.png}
+		\end{center}
+		\end{itemize}
+	\item	This provides a much wider variety of decision trees which is why random forests are much more flexible.
+	\item[]	\textbf{Note}: \textbf{B}ootstrapping the data and using the \textbf{agg}regate to make a decision is called \textbf{bagg}ing.
+	\begin{itemize}[leftmargin = *]
+		\item	Typically about $1/3$ of the original data does not end up in the bootstrapped dataset---this is the \textbf{Out-Of-Bag} dataset.
+		\item	A better terminology, however, would be the \textbf{Out-Of-Boot} dataset as it's the data which wasn't in the bootstrapped dataset.
+		\item	It becomes our testing dataset with which we calculate the \textbf{Out-Of-Bag Error}.
+	\end{itemize}
+	\item	We do this with a different number of variables being used per step to find the optimal number of variables to use.
+	\item	Typically, we start with the square of the number of variables and try a few settings above and below that value.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-RF-PT2}]{\href{https://www.youtube.com/watch?v=sQ870aTKqiM&feature=youtu.be}{StatQuest: Random Forests Part 2: Missing data and clustering}}
+\begin{itemize}[leftmargin = *]
+	\item	Random forests consider 2 types of missing data:
+		\begin{enumerate}[leftmargin = *]
+		\item	Missing data in the original data set used to create the RF.
+			\begin{itemize}[leftmargin = *]
+			\item	The idea is to make an initial guess that could be bad, then gradually refine the guess until it is (hopefully) a good guess.
+			\item	The initial bad guess is to input the most common value for a categorical variable, and the median for a numeric one.
+			\item	To refine the guess, we find observations which are \textit{similar} to the one with missing data.
+			\item	In the case of a RF, samples which end up in the same terminal node are \textit{similar}.
+			\item	We can keep track of similar samples with a proximity matrix.
+			\item	After each iteration of the RF, we add one to the samples which end up together and then divide the total by the number of trees.
+			\begin{center}
+				\includegraphics[scale=0.4]{src/SQ-proximity-matrix.png}
+			\end{center}
+			\item	Therefore we can make better guesses about the missing data using proximity values to weigh the frequency of different values.
+			\item	weight for the sample 4 yes = $\frac{\text{proximity where yes}}{all proximities for sample 4}$.
+			\item	Can find the distance matrix which is $1 - proximity$ and them do heat maps or MDS / PCoA.
+			\end{itemize}
+		\item	Missing data in a new sample we want to categorize.
+			\begin{itemize}[leftmargin = *]
+			\item	Create two copies of the observation---Yes and No.
+			\item	Then, use the same method to input the missing data.
+			\item	Then, take the option which classifies the best as either Yes or No respectively.
+			\end{itemize}
+		\end{enumerate}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-RF-R}]{\href{https://www.youtube.com/watch?v=6EXPYzbfLCE&feature=youtu.be}{StatQuest: Random Forests in R}}
+\begin{itemize}[leftmargin = *]
+	\item	package \texttt{randomForest}.
+	\item	Default number of splits is the square root of the number of variables.
+	\item	Plot the error rates to determine the number of trees for optimal classification.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\section*{Boosting}
+
+\begin{YTB_vids}[Vidéos YouTube]
+\begin{itemize}
+	\item	\nameref{SQ-Boo-Ada}
+	\item	\nameref{SQ-Boo-Reg-Idea}
+	\item	\nameref{SQ-desc-grad}
+	\item	\nameref{SQ-desc-grad-sto}
+	\item	\nameref{SQ-Boo-Reg-Det}
+	\item	\nameref{SQ-Boo-Class-Idea}
+	\item	\nameref{SQ-Boo-Class-Det}
+\end{itemize}
+\end{YTB_vids}
+
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-Boo-Ada}]{\href{https://www.youtube.com/watch?v=LsK-xG1cLYA&feature=youtu.be}{AdaBoost, Clearly Explained}}
+\textbf{\underline{Differences between Random Forests and Adaboost}}
+
+\textbf{Random Forest}
+\begin{itemize}[leftmargin = *]
+	\item	Each time you make a tree, you make a full sized tree.
+		\begin{itemize}[leftmargin = *]
+		\item	Some trees may be bigger than others, but there's \textbf{no predetermined maximum depth}.
+		\end{itemize}
+	\item	Each tree has an equal vote on the final classification.
+	\item	Each tree is made independently of the others.
+\end{itemize}
+
+\textbf{Adaboost Random Forest}
+\begin{itemize}[leftmargin = *]
+	\item	Trees are usually \textit{just one node} and \textit{two leaves}---a \textbf{stump}.
+		\begin{itemize}[leftmargin = *]
+		\item	So Adaboost is really a random "\textit{Forest of Stumps}".
+		\item	Stumps are not great at making classifications as they only have one variable to make a decision---they are "\textit{weak learners}".
+		\end{itemize}
+	\item	Some stumps get more say than others in the final classification.
+	\item	Trees are mare sequentially thus order has an impact.
+		\begin{itemize}[leftmargin = *]
+		\item	The first stump's errors influences how the second stump is made.
+		\end{itemize}
+\end{itemize}
+
+\tcbline
+
+\textbf{Procedure}:
+\begin{enumerate}[leftmargin = *]
+\item	We give each observation, or \textit{sample}, a \textbf{"sample" weight} to indicate how important it is that it be correctly classified.	
+\begin{itemize}
+	\item	Initially, all samples get the same weight $\frac{1}{\text{total number of samples}}$.
+	\item	However, after making the first stump, these weights will change in order to guide how the next stump is created.
+\end{itemize}
+
+\item	To make the first stump, we find the variable which does the best job classifying the sample.
+\begin{itemize}
+	\item	Given all the weights are the same right now, we can ignore them.
+	\item	We could use the Gini index to compare the variables.
+\end{itemize}
+
+\item	We determine how much say the first stump will have in the final classification.
+\begin{itemize}
+	\item	The \textbf{total error} for a stump is the sum of the "sample" weights associated with the incorrectly classified samples.
+		\begin{itemize}[leftmargin = *]
+		\item	For example, incorrectly classifying 2 samples with sample weights of 1/8 leads to a total error of 2/8.
+		\item	Given the sample weights add up to 1, the total error will always be between 0 (a perfect stump) and 1 (a terrible stump).
+		\end{itemize}
+	\item	The \textbf{amount of say} = $\frac{1}{2} \log \left( \frac{1 - \text{Total Error}}{\text{Total Error}} \right)$.
+	\item[]	Its graph looks like this:
+	\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-ADA-AMT-SAY.png}
+	\end{center}
+		\begin{itemize}[leftmargin = *]
+		\item	When a stump is efficient and has a relatively small total error, its amount of say will be relatively large.
+		\item	If a stump is really bad, the negative value will turn a "Yes" into a "No".
+		\end{itemize}
+	\item	In brief, the sample weights from \textit{\textbf{incorrectly}} classified samples determine the \textit{amount of say} each stump gets.
+\end{itemize}
+
+\item	Modify the weights so that the next stump will account for the previous stump's errors.
+\begin{itemize}[leftmargin = *]
+	\item	Originally all the sample weights were identical.
+	\item[]	Therefore, there was no emphasis on the \textit{importance of correctly classifying} any one particular sample.
+	\item[]	However, we really want the samples (observations) which were incorrectly classified before to be correctly classified in the next stump. 
+	\item[]	So, we give the incorrectly classified samples more weight and reduce the weight of the samples that were correctly classified.
+	\item	When we want to \textit{\textbf{increase}} the weights, the \textbf{new sample weight} = $\text{sample weight} \times \textrm{e}^{\text{amount of say}}$.
+	\item[]	Its graph looks like this:
+	\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-ADA-NEW-SWE.png}
+	\end{center}
+		\begin{itemize}[leftmargin = *]
+		\item	When a stump is efficient and has a relatively high amount of say, then the new sample weight will be much larger than the previous.
+		\item	If a stump is really bad, then the new sample weight will not change very much.
+		\end{itemize}
+	\item	When we want to \textit{\textbf{\textcolor{red}{decrease}}} the weights, the \textbf{new sample weight} = $\text{sample weight} \times \textrm{e}^{\textcolor{red}{-}\text{amount of say}}$.
+	\item	We then normalize them so they're between 0 and 1 with $\frac{\text{sample weight}}{\text{sum of the new sample weights}}$.
+	\item	Theoretically, these weights could be used to calculate the weighted Gini index.
+	\item	Instead, we make a new sample of the same size picking observations according to their weight using the inversion method.
+		\begin{itemize}[leftmargin = *]
+		\item	Thus, some observations could (should) be repeated in the new sample set.
+		\item	Then, we give equal weights to this new sample.
+		\item	Because some observations will be repeated, they will have a higher weight as the will be treated like a "block" with a large penalty for misclassification.
+		\end{itemize}
+\end{itemize}
+
+\item	Predict
+\begin{itemize}[leftmargin = *]
+	\item	We sum the amount of say from each root tree and the class having the highest weight is the predicted value.
+\end{itemize}
+\end{enumerate}
+
+\tcbline
+
+\textbf{\underline{Three main ideas}}:
+\begin{enumerate}[leftmargin = *]
+	\item	\textbf{Adaboost} combines a lot of \textit{weak learners} to make classifications.
+		\begin{itemize}[leftmargin = *]
+		\item	The weak learners are almost always \textbf{stumps}.
+		\end{itemize}
+	\item	Some \textbf{stumps} get more say in the classification than others.
+	\item	Each \textbf{stump} is made by taking the previous \textbf{stump's} mistakes into account.
+		\begin{itemize}[leftmargin = *]
+		\item	If we have a \textit{weighted Gini function}, then we use it with the sample weights.
+		\item	Otherwise, we use the sample weights to make a new dataset reflect them (generate  a number between 0 and 1, choose observation according to the cumulative proportion).
+		\end{itemize}
+\end{enumerate}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-Boo-Reg-Idea}]{\href{https://www.youtube.com/watch?v=3CC4N4z3GJc&feature=youtu.be}{Gradient Boost Part 1: Regression Main Ideas}}
+\textbf{Comparison / general details} 
+Gradient boost
+\begin{enumerate}[leftmargin = *]
+	\item	Make a single leaf, instead of a tree or a stump.
+	\begin{itemize}[leftmargin = *]
+	\item	The leaf represents an initial guess for the weights of all the samples.
+	\item	When trying to predict a continuous value, the first guess is the average value.
+	\end{itemize}
+	\item	Build a tree
+	\begin{itemize}[leftmargin = *]
+	\item	Like Adaboost, usually based on the previous tree's errors.      
+	\item	Unlike Adaboost, the tree is usually larger than a stump.        
+	\item	Gradient boost does however restrict the size of the tree.       
+		\begin{itemize}[leftmargin = *]
+		\item	Often the maximum number of leaves is between 8 and 32.
+		\end{itemize}
+	\item	It scales all trees by the same amount.
+	\end{itemize}
+\end{enumerate}
+
+\tcbline
+
+\textbf{Procedure}
+
+\begin{enumerate}[leftmargin = *]
+	\item	Calculate the average weight = 71.2kg.
+	\begin{itemize}[leftmargin = *]
+	\item	First "attempt" at predicting everyone's weight; i.e., if we stopped right now, we'd predict that everyone weighs 71.2 kg.
+	\end{itemize}
+
+	\item	Build a tree based on the errors the previous tree made.
+	\begin{itemize}[leftmargin = *]
+	\item	The error, or \textbf{pseudo-residual}, is the difference between the observed $x$ and predicted $\bar{x}$ weights $x - \bar{x}$.
+		\begin{itemize}[leftmargin = *]
+		\item	"Residual" is based on linear regression's residuals between the curve and real data points.
+		\end{itemize}
+	\end{itemize}
+
+	\item	We use the variables to \textbf{predict the residuals}.
+	\begin{itemize}[leftmargin = *]
+	\item	The tree will predict the average of the residuals from the observations in the leaf.
+	\begin{itemize}[leftmargin = *]
+	\item	So, with an initial prediction of 71.2 ($\bar{x}$), the predicted weight is (for example) $71.2 + 16.8 = 88$.
+	\item	In this case, the prediction is bad because it is overfit---low bias and high variance.
+	\end{itemize}
+	\item	We address this with a learning rate $\lambda$ which scales the value.
+	\begin{itemize}[leftmargin = *]
+	\item	For example, the predicted weight would be $71.2 + 0.10 \times  16.8 = 72.9$.
+	\item	The prediction is a \textbf{little worse} than before but a \textbf{little better} than the initial guess of 71.2.
+	\end{itemize}
+	\item	So, we take \textbf{many little steps} in the right direction for better predictions and see this by having slightly smaller residuals.
+	\end{itemize}
+
+	\item	We repeat with the new tree.
+	\begin{itemize}[leftmargin = *]
+	\item	For example, we'd predict $71.2 + 0.1 \times 16.8 + 0.1 \times 15.1 = 74.4$.
+	\end{itemize}
+\end{enumerate}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-desc-grad}]{\href{https://www.youtube.com/watch?v=sDv4f4s2SB8}{Gradient Descent, Step-by-Step}}
+\begin{itemize}[leftmargin = *]
+	\item	Examples of times we optimize:
+		\begin{itemize}[leftmargin = *]
+		\item	Linear regression: we optimize the intercept and slope when fitting a line.
+		\item	Logistics regression: we optimize a squiggle.
+		\end{itemize}
+	\item	\textbf{Gradient descent} can optimize \textit{all} of this \underline{and more}.
+	\item	To optimize the intercept when fitting a line with gradient descent:
+		\begin{enumerate}[leftmargin = *]
+		\item	Pick a random value for the intercept.
+			\begin{itemize}[leftmargin = *]
+			\item	This initial guess gives gradient descent something to improve upon.	
+			\end{itemize}
+		\item	Evaluate how well the line fits the data with the SSR.
+			\begin{itemize}[leftmargin = *]
+			\item	In machine learning, we refer to the SSR as a type of \textbf{Loss Function}.
+			\end{itemize}
+		\item	Repeat this with several possible values for the intercept and plot the SSR in function of the intercept:
+			\begin{center}
+			\includegraphics[scale=0.4]{src/SQ-GD-SSR.png}
+			\end{center}
+		\end{enumerate}
+		\begin{itemize}
+		\item	The long way to then find the optimal intercept and find the best value would be to test the values between the lowest points to see if another number is better.
+		\item	Gradient descent does a few calculations far from the optimal solution and increases the number as it gets closer to the optimal one:
+		\begin{center}
+			\includegraphics[scale=0.4]{src/SQ-GD-SSR-2.png}
+		\end{center}
+			i.e., it takes big steps when far away and baby steps when it is close.
+		\end{itemize}
+	\item	To optimize the intercept, we develop SSR as a function of the intercept:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-GD-SSR-3.png}
+		\end{center}
+	\item	Then, we take it's derivative so that \textbf{Gradient Descent} can use it to find the point where the slope is 0.
+	\item	In linear regression, find where the slope is 0 but gradient descent tries values sequentially:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-GD-SSR-4.png}
+		\end{center}
+	\item	Step size = $\text{slope} \times \text{learning rate}$ and new intercept = old intercept  - step size.
+	\item	It stops taking steps when the step size is very close to 0, in practice it is often 0.001 or less, or when it reaches a maximum number of steps.
+	\item	To optimize find the slope \textbf{AND} intercept, we take the derivative with respect to both.
+	\item	When you have multiple derivatives of the same function, they're referred to as the "\textbf{gradient}" of a function.
+	\item	We use the \textbf{gradient} to \textbf{descend} to the lowest point of the \textbf{loss function}.
+	\item	Gradient descent is very sensitive to the learning rate---in practice, we start large and try lower and lower values until we converge.
+\end{itemize}
+\tcbline
+\textbf{In brief}
+\begin{enumerate}
+	\item	Take the derivative of the \textbf{Loss Function} for each parameter in it.
+	\item	Pick random values for the parameters.
+	\item	Plug the parameter values into the derivatives (the gradient).
+	\item	Calculate the step sizes: \textbf{step size} = \textbf{slope} $\times$ \textbf{learning rate}.
+	\item	Calculate the new parameters: \textbf{new parameter} = \textbf{old parameter} -  \textbf{step size}
+	\item	Repeat from step 3 until the step size is very small, or you reach the maximum number of steps.
+\end{enumerate}
+
+With many data points, it can be very long to calculate the SSR at each step. \textbf{Stochastic Gradient Descent} uses a random subset of the data at every step instead of the full dataset.
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-desc-grad-sto}]{\href{https://www.youtube.com/watch?v=vMh0zPT0tLI}{Stochastic Gradient Descent, Clearly Explained!!!}}
+\begin{itemize}[leftmargin = *]
+	\item	The main advantage of stochastic gradient descent is to apply gradient descent to a large amount of data. 
+	\item	For example, with only 10'000 data points, we'd already have to calculate 20'000 residuals \textit{at every step}.
+	\item	Stochastic Gradient Descent is also very sensitive to the learning rate and we also start large and get progressively smaller. The way the rate changes is called the \textbf{schedule}.
+	\item	It is especially useful when there are redundancies in the data.
+	\item	The \textbf{strict} definition is to use 1 observation per step.\\
+			However, it is more common to use a small subset, or \textbf{mini-batch}, of data for each step.
+	\item	It can lead to more stable estimates of the parameters in fewer steps.
+	\item	An advantage of Stochastic Gradient Descent is we can use it to adjust our guess instead of restarting the whole process.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-Boo-Reg-Det}]{\href{https://www.youtube.com/watch?v=2xudPOBz-vs&feature=youtu.be}{Gradient Boost Part 2: Regression Details}}
+The formula looks complicated because it's designed to be applicable in many situations.
+\begin{itemize}[leftmargin = *]
+	\item	
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-Boo-Class-Idea}]{\href{https://www.youtube.com/watch?v=jxuNLH5dXCs&feature=youtu.be}{Gradient Boost Part 3: Classification}}
+
+\begin{itemize}[leftmargin = *]
+	\item	
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-Boo-Class-Det}]{\href{https://www.youtube.com/watch?v=StWY5QWMXCw&feature=youtu.be}{Gradient Boost Part 4: Classification Details}}
+
+\begin{itemize}[leftmargin = *]
+	\item	
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
 
 \end{document}
