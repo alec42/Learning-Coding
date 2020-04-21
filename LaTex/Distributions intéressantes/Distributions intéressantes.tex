@@ -12,6 +12,7 @@
 \date{}
 \author{Alec James van Rassel}
 \maketitle
+\setlist{leftmargin=*}
 
 \tableofcontents
 \clearpage
@@ -19,16 +20,47 @@
 \section{Distributions continues}
 
 \begin{distributions}[Bêta généralisée]
-%\begin{center}
-Le domaine des $x$ est élargit tel que $x \in (0, \theta)$.
+\begin{rappel_enhanced}[Contexte et utilité]
+\begin{itemize}
+	\item	Le domaine des $x$ est élargit tel que $x \in (0, \theta)$.
+\end{itemize}
+%%%	https://www.randomservices.org/random/special/Beta.html
+\end{rappel_enhanced}
 
-Soit $X \sim \text{Bêta Généralisée}(\alpha, \beta, \theta, \tau)$.
-%\end{center}
-	\begin{align*}
+\begin{minipage}{0.4\columnwidth}
+\begin{formula}{Paramètres}
+\begin{description}
+	\item[$\alpha$]	Paramètre de forme.
+	\item[$\beta$]	Paramètre de forme.
+	\item[$\tau$]	Paramètre.
+	\item[$\theta$]	Paramètre d'échelle.
+\end{description}
+\end{formula}
+\end{minipage}
+\begin{minipage}{0.6\columnwidth}
+\begin{center}
+\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}l  | >{\columncolor{beaublue}}c  |}
+\hline\rowcolor{airforceblue} 
+\textcolor{white}{\textbf{Notation}}	&	\textcolor{white}{\textbf{Paramètres}}		&	\textcolor{white}{\textbf{Domaine}}	\\\specialrule{0.1em}{0em}{0em} 
+$X \sim \text{Bêta Gén.}(\alpha, \beta, \theta, \tau)$	&	$\alpha \in (0, \infty)$	&	$x \in \mathbb{R}$	\\
+	&	$\beta \in (0, \infty)$	&	\\
+	&	$\tau \in $	&	\\
+	&	$\theta \in (0, \infty)$	&	\\\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+
+\begin{definitionNOHFILLsub}[Fonctions]
+\begin{align*}
 	f_{X}(x)
 	&=	\frac{\left(\left[\frac{x}{\theta}\right]^{\tau}\right)^{\alpha} \left(1 - \left[\frac{x}{\theta}\right]^{\tau}\right)^{\beta - 1}}{B(\alpha, \beta)}\frac{\tau}{x}	\\
 	F_{X}(x)
 	&=	B\left(\alpha, \beta; \left[\frac{x}{\theta}\right]^{\tau}\right)	\\
+\end{align*}
+\end{definitionNOHFILLsub}
+
+\begin{definitionNOHFILLsub}[Moments]
+\begin{align*}
 	\text{E}[X]
 	&=	\frac{\alpha \theta}{(\alpha + \beta)}	\\
 	\text{E}[X^{2}]
@@ -37,30 +69,121 @@ Soit $X \sim \text{Bêta Généralisée}(\alpha, \beta, \theta, \tau)$.
 	&=	\frac{\alpha \beta \theta^{2}}{(\alpha + \beta )^{2}(\alpha + \beta + 1)}	\\
 	\text{E}[X^{k}]
 	&=	\frac{\theta^{k} \Gamma(\alpha + \beta) \Gamma(\alpha + k)}{\Gamma(\alpha) \Gamma(\alpha + \beta + k)}, k > -\alpha
-	\end{align*}
+\end{align*}
+\end{definitionNOHFILLsub}
 \end{distributions}
+
+\begin{distributions}[\textbf{Laplace} ou \textbf{exponentielle double}]
+\begin{rappel_enhanced}[Historique]
+\begin{itemize}
+	\item	La distribution Laplace est nommée après Pierre Simon Laplace;
+	\item	Elle se forme en prenant la différent de deux variables aléatoires exponentielles iid;
+	\item	C'est pour cette raison qu'on la surnomme aussi la distribution exponentielle double.
+\end{itemize}
+%%%	https://www.randomservices.org/random/special/Laplace.html
+\end{rappel_enhanced}
+\begin{rappel_enhanced}[Contexte et utilité]
+\begin{itemize}
+	\item	Comme la distribution normale, la distribution Laplace est unimodale et symétrique;
+	\item	Cependant, la densité ressemble à deux distributions exponentielles collées ensemble et est donc plus à pic que la distribution normale;
+	\item	Elle est souvent utilisée pour modéliser des événements ayant des queues lourdes ou un pic plus élevé qu'une distribution normale.
+\end{itemize}
+%%%	https://www.randomservices.org/random/special/Laplace.html
+\end{rappel_enhanced}
+
+\begin{minipage}{0.5\columnwidth}
+\begin{formula}{Paramètres}
+\begin{description}
+	\item[$\mu$]	Paramètre d'emplacement.
+	\item[$b$]	Paramètre d'échelle. 
+		\begin{itemize}
+		\item	Parfois surnommée la \textit{diversité}.
+		\end{itemize}
+\end{description}
+\end{formula}
+\end{minipage}
+\begin{minipage}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}l  | >{\columncolor{beaublue}}c  |}
+\hline\rowcolor{airforceblue} 
+\textcolor{white}{\textbf{Notation}}	&	\textcolor{white}{\textbf{Paramètres}}		&	\textcolor{white}{\textbf{Domaine}}	\\\specialrule{0.1em}{0em}{0em} 
+$X \sim L(\mu, b)$	&	$\mu \in \mathbb{R}$	&	$x \in \mathbb{R}$	\\
+	&	$b \in (0, \infty)$	&	\\\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+
+\begin{definitionNOHFILLsub}[Fonctions]
+\begin{align*}
+	f_{X}(x)
+	&=	\frac{1}{2b}	\textrm{e}^{-\frac{|x	-	\mu|}{b}}	\\
+	F_{X}(x)
+	&=	\frac{1}{2}\left( 1 + \textrm{signe}(x	-	\mu)\left(1	-	\textrm{e}^{-\frac{|x	-	\mu|}{b}}\right)\right)	\\
+	F_{X}^{-1}(\kappa)
+	&=	\begin{cases}
+		\mu	+	b\ln(2\kappa)	&	0	\leq	\kappa	\leq	\frac{1}{2}	\\
+		\mu	-	b\ln\left(2(1	-	\kappa)\right)	&	\frac{1}{2}	\leq	\kappa	<	1
+		\end{cases}
+\end{align*}
+\end{definitionNOHFILLsub}
+
+\begin{definitionNOHFILLsub}[Moments]
+\begin{align*}
+	\textrm{E}[X]
+	&=	\mu 	\\
+	\textrm{Var}(X)
+	&=	2b^{2}	\\
+	M_{X}(t)
+	&=	\frac{\textrm{e}^{\mu t}}{1	-	b^{2}t^{2}}, 	\quad	t	\in (-1/b, 1/b)
+\end{align*}
+\end{definitionNOHFILLsub}
+
+\end{distributions}
+
 
 \clearpage
 \section{Distributions discrètes}
 
 \begin{distributions}[Borel]
-%\begin{center}
-Cette distribution est particulièrement pratique pour les \guillemotleft branching process \guillemotright et le \guillemotleft queuing theory\guillemotright.
 
-Soit $X \sim \text{Borel}(\lambda, n)$ où $\lambda \in [0, 1]$
-%\end{center}
+\begin{rappel_enhanced}[Contexte et utilité]
+\begin{itemize}
+	\item	Cette distribution est particulièrement pratique pour les \og \textit{branching process} \fg{} et le \og \textit{queuing theory} \fg{}.
+\end{itemize}
+\end{rappel_enhanced}
+
+\begin{minipage}{0.5\columnwidth}
+\begin{formula}{Paramètres}
+\begin{description}
+	\item[$\lambda$]	Paramètre de fréquence.
+	\item[$n$]	Paramètre d'échelle. 
+\end{description}
+\end{formula}
+\end{minipage}
+\begin{minipage}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{| >{\columncolor{beaublue}}c | >{\columncolor{beaublue}}l  | >{\columncolor{beaublue}}c  |}
+\hline\rowcolor{airforceblue} 
+\textcolor{white}{\textbf{Notation}}	&	\textcolor{white}{\textbf{Paramètres}}		&	\textcolor{white}{\textbf{Domaine}}	\\\specialrule{0.1em}{0em}{0em} 
+$X \sim \text{Borel}(\lambda, n)$	&	$\lambda \in [0, 1]$	&	$n \in \mathcal{N}$	\\\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+
+\begin{definitionNOHFILLsub}[Fonctions]
 \begin{align*}
 	\mathds{P}(X = n)
-	&=	\left\{ 
-		\begin{matrix}
-			\frac{\text{e}^{-\lambda n} \left(\lambda n\right)^{n - 1}}{n!}	&	n = 1, 2, 3, \dots	\\
-			0	&	\text{autrement}	\\
-		\end{matrix} 
-		\right.	\\
-	\text{E}[X]
-	&=	\frac{1}{1 - \lambda}, \; 0 \le \lambda < 1	\\
-	\text{Var}(X)
-	&=	\frac{\lambda}{(1 - \lambda)^{3}}, \; 0 \le \lambda < 1	\\
+	&=	\frac{\text{e}^{-\lambda n} \left(\lambda n\right)^{n - 1}}{n!}
 \end{align*}
+\end{definitionNOHFILLsub}
+
+\begin{definitionNOHFILLsub}[Moments]
+\begin{align*}
+	\text{E}[X]
+	&=	\frac{1}{1 - \lambda}	\\
+	\text{Var}(X)
+	&=	\frac{\lambda}{(1 - \lambda)^{3}}	
+\end{align*}
+\end{definitionNOHFILLsub}
 \end{distributions}
 \end{document}
