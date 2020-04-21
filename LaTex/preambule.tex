@@ -18,7 +18,7 @@
 %%% Margin and layout
 %%% -----------------------------
 %% Determine the margin for cheatsheet
-\usepackage[landscape, hmargin=1cm, vmargin=1.7cm]{geometry}
+\usepackage[hmargin=1cm, vmargin=1.7cm]{geometry}
 \usepackage{multicol}
 
 %% -----------------------------
@@ -140,9 +140,9 @@
 {
 	enhanced,
 	title = #1,
-	colback=ashgray, % color of the box
+	colback=ashgrey, % color of the box
 %	colframe=blue(pigment),
-	colframe=lightgray,	
+%	colframe=lightgray,	
 	colbacktitle=aurometalsaurus,
 	fonttitle = \bfseries,
 	boxed title style={size=small,colframe=arsenic} ,
@@ -239,8 +239,8 @@
 %%
 \newtcolorbox{formula}[ 1 ]
 {
-	colback = green!5!white,
-	colframe = darkseagreen,
+	colback = beaublue,
+	colframe = airforceblue,
 	fonttitle = \bfseries,title=#1
 }
 %%
@@ -287,6 +287,22 @@
 	after upper = {\addcontentsline{toc}{subsubsection}{\thetcbcounter: #2}},
 %	phantomlabel = {#2},
 	#1
+}
+%%
+%% Coloured box "rappel" pour rappel de formules
+%%
+\DeclareTColorBox{rappel_enhanced}{ o }
+{
+	enhanced,
+	title = #1,
+	colback=lightgray, % color of the box
+%	colframe=blue(pigment),
+%	colframe=arsenic,	
+	colbacktitle=arsenic,
+	fonttitle = \bfseries,
+	breakable,
+	boxed title style={size=small,colframe=arsenic} ,
+	attach boxed title to top center = {yshift=-3mm,yshifttext=-1mm},
 }
 %%
 %% Coloured box "FORMULA_SUMM" pour résumés des formules de l'ASM
@@ -424,6 +440,7 @@
 
 
 
+\usepackage{ctable}
 %% END OF PREAMBLE
 % ---------------------------------------------
 % ---------------------------------------------
