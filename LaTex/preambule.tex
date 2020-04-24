@@ -67,6 +67,46 @@
 % To indicate equation number on a specific line in align environment
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
+\usepackage{longfbox}
+%	voir cette page, paquetage avec CSS https://ctan.math.illinois.edu/macros/latex/contrib/longfbox/longfbox.html
+\newfboxstyle{rappel}{
+	background-color = tealblue!20!white, 
+	border-style = outset,
+	breakable = true,
+%	
+	border-color = tealblue,
+	border-radius = 1ex, 
+%
+	padding-bottom = 0.2ex,
+	padding-top = 0.2ex,
+	padding-left = 0.4ex,
+	padding-right = 0.4ex,
+%	
+	border-top-width = 0.3ex,
+	border-bottom-width = 0.3ex,
+%
+	border-left-width = 1ex, 
+	border-bottom-left-radius = 0.2ex,
+%	
+	border-right-width = 1ex, 
+	border-top-right-radius = 0.2ex,
+%	
+}
+\newfboxstyle{formula}{ 
+	background-color = beaublue, 
+	border-color = bleudefrance
+}
+\newfboxstyle{imphl}{ 
+	padding = 0pt,
+	margin = 0pt,
+	baseline-skip = false,
+	background-color = palechestnut!60!white, 
+	border-color = white
+}
+\newfboxstyle{conditions}{ 
+	background-color = palechestnut, 
+	border-color = red
+}
 %
 % Actuarial notation packages
 %
@@ -373,6 +413,7 @@
 \definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
 \definecolor{lightgray}{rgb}{0.83, 0.83, 0.83}
 \definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+\definecolor{tealblue}{rgb}{0.21, 0.46, 0.53}
 %
 % Useful shortcuts for coloured text
 %
