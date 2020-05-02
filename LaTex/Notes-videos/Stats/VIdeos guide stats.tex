@@ -12,7 +12,8 @@
 %\vspace{-8ex}
 %\date{}
 %\author{Alec James van Rassel}
-
+\setcounter{secnumdepth}{0}
+\setlist{leftmargin=*}
 
 
 \begin{document}
@@ -25,7 +26,7 @@
 
 \part*{Statistics}
 
-\section*{Missing Data}
+\section{Missing Data}
 
 \begin{YTB_vids}[Vidéos YouTube]
 \begin{itemize}
@@ -171,9 +172,7 @@ more educated	&	more (computationally) expensive	\\\hline
 \end{YTB_SUMM_AUTO_NUMB}
 
 \newpage
-
-
-\section*{Regularisation}
+\section{Regularisation}
 
 \begin{YTB_vids}[Vidéos YouTube]
 \begin{itemize}
@@ -219,7 +218,8 @@ more educated	&	more (computationally) expensive	\\\hline
 \end{itemize}
 \end{YTB_SUMM_AUTO_NUMB}
 
-\section*{Trees}
+\pagebreak
+\section{Trees}
 
 \begin{YTB_vids}[Vidéos YouTube]
 \begin{itemize}
@@ -292,7 +292,8 @@ more educated	&	more (computationally) expensive	\\\hline
 \end{itemize}
 \end{YTB_SUMM_AUTO_NUMB}
 
-\section*{Boosting}
+\pagebreak
+\section{Boosting}
 
 \begin{YTB_vids}[Vidéos YouTube]
 \begin{itemize}
@@ -574,4 +575,274 @@ The formula looks complicated because it's designed to be applicable in many sit
 \end{itemize}
 \end{YTB_SUMM_AUTO_NUMB}
 
+\pagebreak
+\section{Statistics}
+\begin{YTB_vids}[Vidéos YouTube]
+\begin{itemize}
+	\item	\nameref{SQ-histograms}
+	\item	\nameref{SQ-stat-distr}
+	\item	\nameref{SQ-norm-distr}
+	\item	\nameref{SQ-sample-distr}
+\end{itemize}
+\end{YTB_vids}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-histograms}]{\href{https://www.youtube.com/watch?v=qBigTkBLU6g}{StatQuest: Histograms, Clearly Explained}}
+\begin{itemize}[leftmargin = *]
+	\item	 If we measured a bunch of people, it'd be difficult to assess all the data points:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-HIST-LINE.png}
+		\end{center}
+	\item	Stacking points which are exactly the same isn't optimal either as it's rare that points are \textit{exactly} the same.
+	\item	Instead, we divide the range of values into bins and stack the measurements that fall in the same bin:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-HIST-BINS.png}
+		\includegraphics[scale=0.4]{src/SQ-HIST-BINS-2.png}
+		\end{center}
+	\item	Figuring out the width of bins is tricky---if they're too narrow it's not very useful:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-HIST-BINS-SHORT.png}
+		\end{center}
+	\item	If they're too wide, they're not very helpful either:
+		\begin{center}
+		\includegraphics[scale=0.3]{src/SQ-HIST-BINS-WIDE.png}
+		\end{center}
+	\item	So, we often have to try out different bins before getting a clear picture.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-stat-distr}]{\href{https://www.youtube.com/watch?v=oI3hZJqXJuc}{StatQuest: What is a statistical distribution?}}
+\begin{itemize}[leftmargin = *]
+	\item	Both histograms and curves are "\textbf{distributions}" which \hl{show us how the probabilities of measurements are distributed}:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-STAT-DISTR-HIST-CURVE.png}
+		\end{center}
+	\item	The tallest part shows us where measurements are \textit{most} likely.
+	\item	The low parts show where measurements are \textit{less} likely.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-norm-distr}]{\href{https://www.youtube.com/watch?v=rzFX5NWojp0&feature=youtu.be}{StatQuest: The Normal Distribution, Clearly Explained!!!}}
+\begin{itemize}[leftmargin = *]
+	\item	the normal curve is a \textbf{symmetric} \textbf{bell shaped curve}.
+	\item	
+	\begin{center}
+	\includegraphics[scale=0.4]{src/SQ-STAT-norm-sd.png}
+	\end{center}
+	\item	95\% of measurements fall within +/- 2 standard deviations of the mean.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-sample-distr}]{\href{https://www.youtube.com/watch?v=XLCWeSVzHUU&feature=youtu.be}{StatQuest: Sampling A Distribution
+}}
+\begin{itemize}[leftmargin = *]
+	\item	"Sampling a distribution" just means to use a computer to pick a random number based on the probabilities described by the histogram or the curve:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-HIST-BINS-sample.png}
+		\end{center}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\pagebreak
+\section{$p$-values}
+
+\begin{YTB_vids}[Vidéos YouTube]
+\begin{itemize}
+	\item	\nameref{SQ-ttest-use}
+	\item	\nameref{SQ-p-val-what}
+	\item	\nameref{SQ-p-val-calc}
+	\item	\nameref{SQ-P-statpower}
+	\item	\nameref{SQ-Phack-power}
+\end{itemize}
+\end{YTB_vids}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-ttest-use}]{\href{https://www.youtube.com/watch?v=nnBJeb_I-q8}{StatQuickie: Which t test to use}}
+What type of $t$-test to use?\\
+There are 2 main categories of $t$-tests:
+\begin{enumerate}
+	\item	\textbf{Paired}:	Useful when we have before and after measurements taken from the same test subject.
+		\begin{itemize}
+		\item	e.g., a drug for blood pressure is administered to a patient.
+		\item	Then, for each patient we have a \textit{\textbf{pair}} of measurements for before and after.
+		\end{itemize}
+	\item	\textbf{Unpaired}: 
+		\begin{itemize}
+		\item	e.g., we have 2 different groups of people for which we measure their heights, then we have unpaired data for groups A and B.
+		\item	There are \hl{2 sub-categories}:
+			\begin{enumerate}
+			\item	One assumes the variation ($\sigma^{2}$) for both groups is the same.
+			\item	The other assumes the \hl{variation is different} for both groups.
+			\end{enumerate}
+		\item	Because the test which assumes the variance is not the same for both groups is more conservative, it's \textbf{more difficult to pass} and should be used by \hl{default}.
+		\end{itemize}
+\end{enumerate}
+
+\
+
+Should we use a one-tailed (a.k.a one-sided) or a two-tailed (a.k.a. two-sided) $t$-test?\\
+\begin{description}
+	\item[two-tailed]	Tests two conditions.
+		\begin{itemize}
+		\item	e.g., when measuring heights it tests if the mean of one group is lower \textit{or} higher than the other.
+		\item	i.e. both \textit{tails} of the distribution are considered.
+		\item	There's \hl{no preconceived notion} that one group should be taller / shorter than the other.
+		\end{itemize}
+	\item[one-tailed]	Tests one condition.
+		\begin{itemize}
+		\item	Much less conservative as it requires me to "know" that group A \textit{must} be higher than group B.
+		\item	Generally speaking, we want the data to speak for itself and use a two-sided test instead.
+		\end{itemize}
+\end{description}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-p-val-what}]{\href{https://www.youtube.com/watch?v=vemZtEM63GY&feature=youtu.be}{p-values: What they are and how to interpret them}}
+\begin{itemize}[leftmargin = *]
+	\item	We want to test if two drugs are different:
+		\begin{center}
+		\includegraphics[scale=0.3]{src/sq-p-inter-test.png}
+		\end{center}
+	\item	Even if drug A was effective and not B, we can't conclude that it's better.
+		\begin{itemize}
+		\item	There's an infinite amount of reasons why A could've worked and not B.
+		\item	Maybe the guy taking drug B missed a dose, maybe drug A is a placebo, etc.
+		\end{itemize}
+	\item	We need to test the drug on more people.
+	\item	For example, if we had the following results we'd know that drug A is better:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-DRUGTEST-CURE.png}
+		\end{center}
+	\item	i.e., it'd be unrealistic to suppose that the results are just \textbf{random chance} and that there is no difference between the drugs.
+	\item	If however, these were the results then we can't be certain of the difference between the drugs:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-DRUGTEST-CUREiffy.png}
+		\end{center}
+	\item	So, \hl{$p$-values are numbers between 0 and 1 which quantify how confident we should be that drug A is different from drug B}.
+	\item	The closer the $p$-value is to 0, the more confident we can be that the drugs are different.
+	\item	We then need to define a \textit{\textbf{threshold}} at which we can decide whether or not it's effective.
+	\item	If, for example, we set the threshold to $0.05$ then repeating the experiment a bunch of times would lead to 5\% of the repetitions being the wrong decision.
+	\item	\textbf{Note}:	Getting a small $p$-value when there is no difference is called a \textbf{False Positive}.
+	\item	A $p$-value value helps us decide if the drugs are different, but not \textit{just how different}.
+	\item	i.e., \hl{a small $p$-value does not mean a small difference}.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-p-val-calc}]{\href{https://www.youtube.com/watch?v=JQc3yx0-Q9E&feature=youtu.be}{How to calculate p-values}}
+There are 2 types of $p$-values: one-sided and two-sided, we focus on the latter.
+
+There are three parts to a $p$-value:
+\begin{enumerate}
+	\item	The probability that random chance would result in the observation. (for 2 heads, $0.5 \times 0.5$).
+	\item	The probability of observing something else that is equally rare. (for 2 tails, $0.5 \times 0.5$).
+		\begin{itemize}
+		\item	Our event is less significant if others are just as rare.
+		\item	For example, giving a unique rare flower is more special than giving a flower that is equally as rare as 10 other ones.
+		\end{itemize}
+	\item	The probability of observing something rarer or more extreme. (nothing is rarer, $0$).
+		\begin{itemize}
+		\item	Rarer things are added for a similar reason.
+		\item	For example, giving the rarest flower is more special than giving a flower and saying there are loads of flowers which are rarer.
+		\end{itemize}
+\end{enumerate}
+
+For tests where we test something like heights, we usually use a continous statistical distribution to calculate $p$-values.
+\begin{itemize}[leftmargin = *]
+	\item	
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-Phack-power}]{\href{https://www.youtube.com/watch?v=UFhJefdVCjE}{p-hacking and power calculations}}
+\begin{itemize}[leftmargin = *]
+	\item	For most of science, it's not worth the cost to have a $p$-value below 5\%.
+	\item	Don't add samples until you get a good $p$-value as it increases the chances of reporting a false positive.
+	\item	Instead, we do a \textbf{power calculation} before the experiment to determine how many samples you need to do.
+	\item	A power calculation is a way to determine how many samples you need in advance of doing an experiment in order to correctly get a small $p$-value.
+\end{itemize}
+
+\begin{itemize}
+	\item	\textbf{Power} = probability a test will correctly give a small $p$-value
+	\item	4 things affect power:
+		\begin{enumerate}
+		\item	The effect size.
+		\item	The variation of the data.
+			\begin{itemize}
+			\item	If the distribution's variation is low, there is a high probability that our samples will also have a low variation.
+			\item	Thereby, there's a relatively \textbf{high} probability we will correctly get a small $p$-value.
+			\item	Similarily, if the distribution's variation is high, there is a high probability that our samples will also have large variation.
+			\item	This means there's a relatively \textbf{low} probability we will correctly get a small $p$-value.
+			\end{itemize}
+		\item	The sample size.
+			\begin{itemize}
+			\item	A large sample size can compensate for a small effect size and high variation.
+			\item	With a large effect size, we don't need alot of data to be confident in the accuracy of the estimated mean in order to detect a difference.
+			\item	With a small effect size, we do need alot of data to be confident in the accuracy of the estimated mean in order to detect a difference.
+			\item	The increase in power is however determined by the variation in the distributions.
+			\end{itemize}
+		\item	The statistical test you use.
+			\begin{itemize}
+			\item	Some are more powerful than others.
+			\item	The $t$-test is a surprisingly powerful one.
+			\end{itemize}
+		\end{enumerate}
+\end{itemize}
+
+To calculate:
+\begin{itemize}
+	\item	Have some preliminary data.
+	\item	Solve for $N$ in $SE	=	\frac{SD}{\sqrt{N}}$.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-P-statpower}]{\href{https://www.youtube.com/watch?v=Rsc5znwR5FA&feature=youtu.be}{Statistical Power, Clearly Explained!!!}}
+\begin{itemize}[leftmargin = *]
+	\item	When two distributions are clearly distinct, it's easier to reject the null hypothesis that they're the same:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-P-SP.png}
+		\end{center}
+	\item	\underline{When the sample data is distinct}.
+	\item	Every once in a while however, we'll get something like this:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-P-SP-2.png}
+		\end{center}
+	\item	This wouldn't reject the null hypothesis.
+	\item	\hl{So we define \textbf{Power} as the probability that we will correctly reject the null hypothesis (a.k.a., the probability of correctly getting a small p-value).}
+	\item	So, in that case we have a large amount of power.
+	\item	In the case where it's the same distribution, the concept doesn't apply:
+		\begin{center}
+		\includegraphics[scale=0.4]{src/SQ-P-SP-3.png}
+		\end{center}		 
+	\item	However, as soon as it's even slightly different it does!
+	\item	\hl{In fact, when there is a lot of overlap between the two distributions \textit{\textbf{and}} we have a small sample size, we have a relatively \textit{low} \textbf{power}}.
+		\begin{itemize}
+		\item	We can always increase power by increasing the number of measurements we collect.
+		\item	A \textbf{power analysis} will tell us how many measurements we need to collect to have a good amount of \textbf{power}.
+		\end{itemize}
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-phacking}]{\href{https://www.youtube.com/watch?v=HDCOUXE3HMM}{p-hacking: What it is and how to avoid it!}}
+\begin{itemize}[leftmargin = *]
+	\item	$p$-hacking is the abuse and misuse of analysis techniques and leads to being fooled by false positives.
+	\item	\textbf{Multiple Testing Problem}: Doing a lot of tests and ending up with \textbf{False Positives}.
+	\item	There are many ways to reduce these false positives, including the False Discovery Rate (FDR).
+		\begin{itemize}
+		\item	The idea of the FDR is to input $p$-values and output larger adjusted $p$-values.
+		\item	This leads to some of the previous false positives to have $p > 0.05$.
+		\item	The important thing to retain is that in order for these methods to work, you must include \textbf{all} the $p$-values for \textbf{all} the tests.
+		\end{itemize}
+	\item	Also, determine the sample size \textbf{before}.
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+
+\begin{YTB_SUMM_AUTO_NUMB}[label = {SQ-}]{\href{}{}}
+\begin{itemize}[leftmargin = *]
+	\item	
+\end{itemize}
+\end{YTB_SUMM_AUTO_NUMB}
+
+
 \end{document}
+
+
