@@ -46,7 +46,7 @@
 %% Début du document
 %% -----------------------------
 \begin{document}
-
+\raggedcolumns
 \begin{multicols*}{2}
 \section*{Structure of data}
 \begin{itemize}
@@ -58,9 +58,9 @@
 \begin{description}
 	\item[\texttt{ts}]	produces a time series object;
 	\item[\texttt{aggregate}]	creates an aggregated series;
-		\begin{itemize}
+		\begin{description}
 		\item[\texttt{aggregate(FUN = mean)}]	returns the mean of the series and is equivalent to dividing by the frequency (12 for example);
-		\end{itemize}
+		\end{description}
 	\item[\texttt{ts.plot}]	produces a time series plot for one (or more) series;
 	\item[\texttt{window}]	extracts a subset of a time series;
 	\item[\texttt{time}]	extracts the time from a time series object;
@@ -75,6 +75,22 @@
 	\item[\texttt{stl}]	decomposes a time series using loess smoothing;
 \end{description}
 \end{distributions}
+
+\begin{distributions}[usethis]
+\begin{description}
+	\item[\texttt{edit_r_environ()}]	Open configuration files (aussi \texttt{edit_r_profile()}, \texttt{edit_rstudio_snippets()}, etc.)
+	\item[\texttt{use_usethis()}]	Ouvre le .Rprofile pour que usethis soit chargé par défaut dans toutes les sessions actives de \texttt{R} (on peut le faire pour n'importe quel paquetage!)
+\end{description}
+\end{distributions}
+
+
+\begin{algo}[Keyboard shortcuts]
+\begin{description}
+	\item[ctrl-.]	Open a file by name in the directory.
+\end{description}
+\end{algo}
+
+
 \end{multicols*}
 %% -----------------------------
 %% Fin du document
