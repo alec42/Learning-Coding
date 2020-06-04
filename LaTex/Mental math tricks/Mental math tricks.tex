@@ -113,6 +113,39 @@ For example:
 Recall that \icbox{$x^{2}	-	1	=	(x	-	1)(x		+	1)$}. In fact, $x^{2}$ can be visualized as a square from which we substract one to form a rectangle of lengths $x	-	1$ and $x	+	1$.
 \end{CHPT_SUMM}
 
+\pagebreak
+\section{Dates and units}
+Since 1582 (introduction of the Gregorian calendar).\\
+
+A year is a leap year if :
+\begin{itemize}
+	\item	The year can be divided by 4 (e.g., 2016, 2020, 2024, etc.).
+	\item	The year cannot be divided by 100 (e.g., 2100, 2200, etc.).
+	\item	Except if it can be divided by 400 (e.g., 2000, 2400, etc.).	
+\end{itemize}
+
+\subsection{Find day of the week of any date}
+We pose : 
+\begin{description}
+	\item[$h$]	Day of the week with $\{0 = \text{Sat.}, 1 = \text{Sun.}, 2 = \text{Mon.}, \dots, 6 = \text{Fri.}\}$.
+	\item[$d_{m}$]	Day of the month.
+	\item[$m$]	Month with $\{3 = \text{Mar.}, 4 = \text{Apr.}, 2 = \text{Mon.}, \dots, 14 = \text{Feb.}\}$.
+		\begin{itemize}
+		\item	So we'd consider February to be the 14th month of the previous year.
+		\end{itemize}
+	\item[$K$]	Year of the century, $Y mod 100$.
+	\item[$J$]	Zero-based century, $\lfloor Y / 100\rfloor$.
+\end{description}
+
+So, $h	=	\left(d_{m} + \lfloor \frac{13(m + 1)}{4} \rfloor + K + \lfloor \frac{K}{4} \rfloor +  + \lfloor \frac{J}{4} \rfloor - 2J\right) mod 7$.
+
+\subsection{Temperature}
+\begin{description}
+	\item[$\deg C$ to $\deg F$]	Multiply by 9, divide by 5 and add 32.
+	\item[$\deg F$ to $\deg C$]	Deduct 32, multiply by 5 and divide by 9.
+\end{description}
+Alternatively, we can multiply \textit{(divide)} by 1.8 (i.e.,  9/5) to convert from $\deg C$ to $\deg F$ \textit{(or vice-versa)}.
+
 \end{multicols*}
 %% -----------------------------
 %% Fin du document
