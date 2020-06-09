@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root><!-- XML tags are case sensitive-->
+    <child>
+        <subchild name = "Johnathan">   <!-- Attribute values must be in quotes-->
+            <!-- 
+                An XML "element" is everything from the opening tag to the closing one.
+            -->
+            <subsubchild>
+                johnathan <!-- This is a text content which contains text.-->
+            </subsubchild>
+            <subsubchild> <!-- This is an element content which contains elements-->
+                <anotherone DJ = 'Khaled'> <!-- This is an attribute.-->
+                    <!-- This is an empty element which has no content but could have an attribute as seen above.-->
+                </anotherone>
+            </subsubchild>
+        </subchild>
+    </child>
+</root>
+
+<!-- 
+    There are five special characters which must be replaced with an entity reference :
+    &lt;	<	less than
+    &gt;	>	greater than
+    &amp;	&	ampersand 
+    &apos;	'	apostrophe
+    &quot;	"	quotation mark
+-->
+
+<!-- 
+    What's great about XML is we can add info to a preexisting file without breaking anything.
+    For example, if we have a <to></to> <from></from> field and use it in an HTML form, we could add other fields
+    and the HTML file could still find the info from the XML field.
+    This is why we say it is an extensible language ! 
+-->
+
+<!-- 
+    Generally, it's prefered to use elements rather than attributes and to split up 
+    elements as much as possible so as to ensure it's more easily expandable.
+    Metadata should be stored as an element and stuff like an ID for internal use 
+    could be used as an attribute.
+-->
+
+<!-- 
+    So as to avoid element name conflicts, it's generally useful to use a prefix.
+    For example, if we have a <table></table> with <tr></tr> and another with format
+    stuff like <width></width>, etc.
+    could use <h:table></h:table> and <f:table></f:table> for the names to ensure compatibility.
+    In such a case, we have to define a namespace
+    <f:table xmlns:f  = "url">
+    
+    </f:table>
+    Not sure how that URL works though, more confusing
+-->

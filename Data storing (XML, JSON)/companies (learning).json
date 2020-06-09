@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Apple",
+        "numberOfEmployees": 10000,
+        "CEO": "Tim Cook",
+        "rating": 3.6
+    }
+    {
+        "name": "Small Startup",
+        "numberOfEmployees": 12,
+        "CEO": null,
+        "rating": 2.9
+    }
+]

@@ -1,0 +1,61 @@
+<WEIGHTS>
+    <weight>
+        <type>ceramic</type>
+        <weight measure = "lbs">2.5</weight>
+        <quantity>8</quantity>
+        <nb_ductaped>1</nb_ductaped>
+    </weight>
+    <weight>
+        <type>ceramic</type>
+        <weight measure = "lbs">5</weight>
+        <quantity>6</quantity>
+        <nb_ductaped>1</nb_ductaped>
+    </weight>
+    <weight>
+        <type>ceramic</type>
+        <weight measure = "lbs">10</weight>
+        <quantity>5</quantity>
+        <nb_ductaped>1</nb_ductaped>
+    </weight>
+    <weight>
+        <type>ceramic</type>
+        <weight measure = "lbs">25</weight>
+        <quantity>2</quantity>
+        <nb_ductaped>2</nb_ductaped>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">2.5</weight>
+        <quantity>7</quantity>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">3</weight>
+        <quantity>4</quantity>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">5</weight>
+        <quantity>10</quantity>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">7.5</weight>
+        <quantity>7</quantity>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">10</weight>
+        <quantity>10</quantity>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">25</weight>
+        <quantity>2</quantity>
+    </weight>
+    <weight>
+        <type>steel</type>
+        <weight measure = "lbs">35</weight>
+        <quantity>4</quantity>
+    </weight>
+</WEIGHTS>

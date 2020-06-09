@@ -1,0 +1,12 @@
+{
+    "name": "Alec",
+    "sex": "male",
+    "age": 21,
+    "isStudent": true,
+    "classes": ["ACT-2001", "ACT-2000"],
+    "grades": [{
+        "ACT-1002": "B-",
+        "ACT-2001": "A+",
+        "ACT-1000": "A-"
+    }]
+}
