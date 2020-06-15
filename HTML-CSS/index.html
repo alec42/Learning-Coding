@@ -46,16 +46,36 @@
                 <form id="question-form">
                   <h3>Préférer-vous allez dehors ou rester à l'intérieur?</h3>
                   <br>
+                  <!-- 
+                  	nesting an input within a label automatically associates the input to the label.
+                  	Si plusieurs inputs sont liés, on attribu un nom qui leurs est partagé.
+                  -->
                   <div class="inline-form">
-                    <label class="container-quiz">L'intérieur
-                      <input type="checkbox" checked="checked">
+                    <label for = "uncheckmarkedinput" class="container-quiz">L'intérieur
+                      <input id="uncheckmarkedinput" name="int-ext" type="checkbox" checked="checked">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container-quiz">L'extérieur
-                      <input type="checkbox">
+                    <label for = "checkmarkedinput" class="container-quiz">L'extérieur
+                      <input id ="checkmarkedinput"name="int-ext" type="checkbox">
                       <span class="checkmark"></span>
                     </label>
                   </div>
+                </form>
+                <!--
+                	C'est une bonne pratique d'attribuer l'utilité d'un label (for) à l'identifidant (ID) de l'input.
+                	Comme ça, clicker sur le texte click sur le bouton.
+                -->
+                <form action="/submit-points">
+                	<label for="famquiz-Q1">
+                		<input id="famquiz-Q1" type="numeric">
+                		Question 1
+                	</label><br>
+                	<label for="famquiz-Q2">
+                		<div class="slidecontainer">
+                			<input class="slider" 	id="famquiz-Q2" type="range" min="0" max="10" value="4">
+                		</div>
+                		 Question 2
+                	</label>
                 </form>
               </div>
             <div id = "footer">
