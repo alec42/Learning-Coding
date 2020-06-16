@@ -1,7 +1,5 @@
 Functions have flags you can combine together for added functionality.
 
-
-
 ls
 
 - -a: For **a**ll files including hidden ones
@@ -16,19 +14,13 @@ ls
 
 - -t: sort by (modification) **t**ime
 
-
-
 cd 
 
 - -: for previous directory
 
 - .: for present directory
 
-
-
 touch: peut créer un fichier
-
-
 
 cat: peut visualiser le contenu d'un fichier
 
@@ -46,27 +38,17 @@ less: peut visualiser le contenu d'Un fichier d'une façon plus structurée avec
 
 - h: pour de l'aide
 
-
-
 file: information sur un fichier
-
-
 
 history: liste des commandes éxecutées
 
-
-
 ctrl-r: start typing a command and it will autofill with previous commands
-
-
 
 cp \<file\> \<location\>: copy file
 
 - -r: recursively copies
 
 - -i: prompt before overwriting files if 2 files have the same name
-
-
 
 mv: move and/or rename files
 
@@ -76,13 +58,9 @@ mv: move and/or rename files
 
 - -b: backup file replacing
 
-
-
 mkdir: create directory
 
 - -p: creates subdirectory at the same time
-
-
 
 rm: remove file
 
@@ -94,18 +72,22 @@ rm: remove file
 
 - rmdir: remove directory alternatively to doing -r
 
-
-
 find: find file
 
 - -type: specifiy type of file
 
-
-
 man: manuel
-
-
 
 whatis: tells you what a command is
 
+\>
 
++ rerout command to smt.
+
++ E.g. echo Hello World \> test.txt
+  
+  + Creates (overwrites) file with Hello World
+
++ \>\> would append the file instead of overwriting
+
++ \< redirects in
