@@ -91,3 +91,15 @@ whatis: tells you what a command is
 + \>\> would append the file instead of overwriting
 
 + \< redirects in
+
++ 2> redirects the error message
+  
+  + e.g. ls /fake/directory 2> test.txt would paste an error message (assuming directory doesn't exist) to the txt file
+
+
+
+
+
+## Piping commands
+
++ e.g. if ls and there's alot of folders could do : ls -la /etc/ | less to have a scrollable view
