@@ -2,7 +2,7 @@
 <html>
     <body>
         <script>
-            alert('Hello world!');
+           // alert('Hello world!');
             document.write("Hello world!");
             var myvariable;
             myvariable = 5;
@@ -30,7 +30,22 @@
             var result2 = word.substring(0, 2);
             document.write(result2);
         </script>
+        
         <br>
+        <!-- 
+        	This creates an input which is printed out using the Javascript function below.
+        -->
+        <input type="text" id="userName" placeholder="Enter your name here">
+        <button onclick="greetUser()">Press Enter !</button>
+        <p id="greetingPrint"></p>
+        <script>
+        	function greetUser() {
+        		var x = `Hello ${document.getElementById("userName").value}`
+        		document.getElementById("greetingPrint").innerHTML = x
+        	}
+        </script>
+        <br>
+        
         <script>
             var a = new Array(7);
           a[0] = "cat";
