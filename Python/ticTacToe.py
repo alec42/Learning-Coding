@@ -121,14 +121,20 @@ class TicTacToe(Table):
 		self.m, self.n = m, n
 		super().__init__(self.m, self.n)
 		self.reset()
+
 	def __str__(self):
 		return gridGenerator(self)
+
 	def reset(self):
 		self.data = [' ' for _ in range(self.m * self.n)]
 		return self
+
 	def choose(self, symbol, i, j):
+		if ((symbol not in {'X', 'O'}) or (self.data[i * self.n + j] in {'X', 'O'})):
+			raise ValueError
 		self.data[i * self.n + j] = symbol
 		print(self)
+
 	##	------------------------------------------------------------	##
 	##	For a simple 3x3 board, we could hardcore ifelse statements to 
 	##	check if a player has won. However, I prefer to generalize the
