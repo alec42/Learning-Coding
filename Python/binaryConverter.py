@@ -12,3 +12,4 @@ def bin2dec(binNumber):
 	for b in range(len(binNumber)):
 		decNumber += int(binNumber[::-1][b]) * 2**b
 	return decNumber
+
