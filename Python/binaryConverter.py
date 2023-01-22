@@ -13,3 +13,4 @@ def bin2dec(binNumber):
 		decNumber += int(binNumber[::-1][b]) * 2**b
 	return decNumber
 
+print(bin2dec('111'))

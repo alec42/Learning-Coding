@@ -1,5 +1,4 @@
 library(tidyverse)
-# library(ggplot2)
 library(cowplot) # improves some of GGPLOT2 default settings
 # overwrite ggplot's save functon too
 # install.packages("randomForest")
@@ -41,8 +40,8 @@ colnames(data) <- c(
     "thalach", # maximum heart rate achieved
     "exang",   # exercise induced angina, 1 = yes, 0 = no
     "oldpeak", # ST depression induced by exercise relative to rest
-    "slope",    # the slope of the peak exercise ST segment 
-                # 1 = upsloping 
+    "slope",    # the slope of the peak exercise ST segment
+                # 1 = upsloping
                 # 2 = flat 
                 # 3 = downsloping 
     "ca", # number of major vessels (0-3) colored by fluoroscopy

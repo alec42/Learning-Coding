@@ -1,0 +1,4 @@
+#!/bin/bash
+
+write -t vvar < < ls
+
